@@ -846,6 +846,168 @@
     transform: translateY(0);
   }
 
+  /* ============ DEENSCROLLING PHONE MOCKUP ============ */
+  .ds-phone-wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .ds-phone-outer {
+    position: relative;
+    width: 260px;
+  }
+  .ds-btn {
+    position: absolute;
+    background: #252525;
+    z-index: 10;
+  }
+  .ds-btn-vol-up {
+    left: -3px;
+    top: 110px;
+    width: 3px;
+    height: 34px;
+    border-radius: 2px 0 0 2px;
+  }
+  .ds-btn-vol-down {
+    left: -3px;
+    top: 154px;
+    width: 3px;
+    height: 34px;
+    border-radius: 2px 0 0 2px;
+  }
+  .ds-btn-power {
+    right: -3px;
+    top: 130px;
+    width: 3px;
+    height: 56px;
+    border-radius: 0 2px 2px 0;
+  }
+  .ds-phone-frame {
+    width: 100%;
+    background: #1a1a1a;
+    border-radius: 44px;
+    box-shadow:
+      0 40px 100px rgba(0,0,0,0.4),
+      inset 0 0 0 1.5px rgba(255,255,255,0.1),
+      inset 0 0 0 4px rgba(0,0,0,0.8);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .ds-status-bar {
+    height: 50px;
+    background: #0B0E13;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .ds-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    font-family: var(--font-body);
+    letter-spacing: 0.3px;
+  }
+  .ds-island {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 88px;
+    height: 28px;
+    background: #000;
+    border-radius: 20px;
+  }
+  .ds-status-icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .ds-phone-screen {
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #0B0E13;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: y mandatory;
+  }
+  .ds-phone-screen::-webkit-scrollbar { display: none; }
+  .ds-carousel-section {
+    height: 500px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+  }
+  .ds-carousel {
+    flex: 1;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    min-height: 0;
+  }
+  .ds-carousel:active { cursor: grabbing; }
+  .ds-carousel::-webkit-scrollbar { display: none; }
+  .ds-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    height: 100%;
+    background: #0B0E13;
+    overflow: hidden;
+  }
+  .ds-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .ds-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 0;
+    background: #0B0E13;
+    flex-shrink: 0;
+  }
+  .ds-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  .ds-dot.active {
+    background: var(--gold);
+    width: 18px;
+    border-radius: 3px;
+  }
+  .ds-home-bar {
+    height: 30px;
+    background: #0B0E13;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .ds-home-bar::after {
+    content: '';
+    width: 100px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+  }
+
   /* ============ MOBILE ============ */
   @media (max-width: 900px) {
     .navbar { padding: 1rem 1.5rem; }
@@ -873,6 +1035,9 @@
     .deen-banner-inner { padding: 0 1.5rem; }
     .phone-mockup { width: 220px; }
     .feature-phone { width: 220px; }
+    .ds-phone-outer { width: 220px; }
+    .ds-phone-screen { height: 420px; }
+    .ds-carousel-section { height: 420px; }
   }
 
   @media (max-width: 500px) {
@@ -892,7 +1057,7 @@
     <span class="nav-logo-text">WAZEER</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
+    <li><a href="#jibril">JIBRIL</a></li>
     <li><a href="#deenscrolling">Deenscrolling</a></li>
     <li><a href="#download" class="nav-cta">Download</a></li>
   </ul>
@@ -963,7 +1128,7 @@
   <div class="section-container">
 
     <!-- JIBRIL -->
-    <div class="feature-block reveal">
+    <div class="feature-block reveal" id="jibril">
       <div class="feature-text">
         <span class="section-label">Feature One</span>
         <h3>JIBRIL — The Chatbot</h3>
@@ -1034,29 +1199,51 @@
         </p>
       </div>
       <div class="feature-visual">
-        <div class="feature-phone">
-          <div class="feature-phone-screen">
-            <div class="feed-mockup">
-              <div class="feed-header">
-                <div class="feed-header-name">✦ Deenscrolling</div>
+        <div class="ds-phone-wrap">
+          <div class="ds-phone-outer">
+            <div class="ds-btn ds-btn-vol-up"></div>
+            <div class="ds-btn ds-btn-vol-down"></div>
+            <div class="ds-btn ds-btn-power"></div>
+            <div class="ds-phone-frame">
+              <div class="ds-status-bar">
+                <span class="ds-time">9:41</span>
+                <div class="ds-island"></div>
+                <div class="ds-status-icons">
+                  <svg width="16" height="11" viewBox="0 0 16 11" fill="none">
+                    <circle cx="8" cy="9.5" r="1.5" fill="white"/>
+                    <path d="M4.5 6.5a5 5 0 0 1 7 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M1 3.5a10 10 0 0 1 14 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  </svg>
+                  <svg width="24" height="11" viewBox="0 0 24 11" fill="none">
+                    <rect x="0.5" y="0.5" width="19" height="10" rx="2.5" stroke="white" stroke-opacity="0.35"/>
+                    <rect x="1.5" y="1.5" width="15" height="8" rx="1.5" fill="white"/>
+                    <path d="M20.5 3.5v4a2 2 0 0 0 0-4Z" fill="white" opacity="0.4"/>
+                  </svg>
+                </div>
               </div>
-              <div class="feed-body">
-                <div class="feed-card-mock">
-                  <div class="verse-label">Surah Al-Baqarah · 2:286</div>
-                  <div class="verse-arabic">لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا</div>
-                  <div class="verse-translation">"Allah does not burden a soul beyond that it can bear."</div>
+              <div class="ds-phone-screen">
+                <div class="ds-carousel-section">
+                  <div class="ds-carousel" data-carousel="0">
+                    <div class="ds-slide"><img src="carousel1-slide1.png" alt=""></div>
+                    <div class="ds-slide"><img src="carousel1-slide2.png" alt=""></div>
+                  </div>
+                  <div class="ds-dots">
+                    <div class="ds-dot active"></div>
+                    <div class="ds-dot"></div>
+                  </div>
                 </div>
-                <div class="feed-card-mock hadith">
-                  <div class="verse-label">Sahih Al-Bukhari</div>
-                  <div class="verse-arabic">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ</div>
-                  <div class="verse-translation">"Actions are judged by intentions."</div>
-                </div>
-                <div class="feed-card-mock">
-                  <div class="verse-label">Surah Ash-Sharh · 94:6</div>
-                  <div class="verse-arabic">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</div>
-                  <div class="verse-translation">"Indeed, with hardship comes ease."</div>
+                <div class="ds-carousel-section">
+                  <div class="ds-carousel" data-carousel="1">
+                    <div class="ds-slide"><img src="carousel2-slide1.png" alt=""></div>
+                    <div class="ds-slide"><img src="carousel2-slide2.png" alt=""></div>
+                  </div>
+                  <div class="ds-dots">
+                    <div class="ds-dot active"></div>
+                    <div class="ds-dot"></div>
+                  </div>
                 </div>
               </div>
+              <div class="ds-home-bar"></div>
             </div>
           </div>
         </div>
@@ -1152,6 +1339,34 @@
   // Stagger children in example questions
   document.querySelectorAll('.example-q').forEach((q, i) => {
     q.style.transitionDelay = `${i * 0.1}s`;
+  });
+
+  // Carousel dot indicators
+  document.querySelectorAll('.ds-carousel').forEach((carousel) => {
+    const section = carousel.closest('.ds-carousel-section');
+    const dots = section.querySelectorAll('.ds-dot');
+    carousel.addEventListener('scroll', () => {
+      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    });
+  });
+
+  // Carousel mouse drag support (desktop)
+  document.querySelectorAll('.ds-carousel').forEach((carousel) => {
+    let isDown = false, startX, scrollLeft;
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+      e.preventDefault();
+    });
+    document.addEventListener('mouseup', () => { isDown = false; });
+    carousel.addEventListener('mouseleave', () => { isDown = false; });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const x = e.pageX - carousel.offsetLeft;
+      carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
   });
 </script>
 
