@@ -1008,6 +1008,155 @@
     border-radius: 4px;
   }
 
+  /* ============ JIBRIL PHONE CAROUSEL ============ */
+  .jb-phone-wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .jb-phone-outer {
+    position: relative;
+    width: 260px;
+  }
+  .jb-btn {
+    position: absolute;
+    background: #252525;
+    z-index: 10;
+  }
+  .jb-btn-vol-up {
+    left: -3px;
+    top: 110px;
+    width: 3px;
+    height: 34px;
+    border-radius: 2px 0 0 2px;
+  }
+  .jb-btn-vol-down {
+    left: -3px;
+    top: 154px;
+    width: 3px;
+    height: 34px;
+    border-radius: 2px 0 0 2px;
+  }
+  .jb-btn-power {
+    right: -3px;
+    top: 130px;
+    width: 3px;
+    height: 56px;
+    border-radius: 0 2px 2px 0;
+  }
+  .jb-phone-frame {
+    width: 100%;
+    background: #1a1a1a;
+    border-radius: 44px;
+    box-shadow:
+      0 40px 100px rgba(0,0,0,0.4),
+      inset 0 0 0 1.5px rgba(255,255,255,0.1),
+      inset 0 0 0 4px rgba(0,0,0,0.8);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .jb-status-bar {
+    height: 50px;
+    background: #f5f1eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .jb-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-family: var(--font-body);
+    letter-spacing: 0.3px;
+  }
+  .jb-island {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 88px;
+    height: 28px;
+    background: #000;
+    border-radius: 20px;
+  }
+  .jb-status-icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .jb-status-icons svg { fill: #1a1a1a; }
+  .jb-status-icons circle, .jb-status-icons path[stroke] { stroke: #1a1a1a; fill: none; }
+  .jb-status-icons circle[fill] { fill: #1a1a1a; }
+  .jb-status-icons rect[stroke] { stroke: #1a1a1a; stroke-opacity: 0.35; }
+  .jb-status-icons rect[fill] { fill: #1a1a1a; }
+  .jb-status-icons path[fill]:not([stroke]) { fill: #1a1a1a; }
+  .jb-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    aspect-ratio: 9/17;
+  }
+  .jb-carousel:active { cursor: grabbing; }
+  .jb-carousel::-webkit-scrollbar { display: none; }
+  .jb-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    height: 100%;
+  }
+  .jb-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .jb-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 0;
+    background: #f5f1eb;
+    flex-shrink: 0;
+  }
+  .jb-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  .jb-dot.active {
+    background: var(--emerald);
+    width: 18px;
+    border-radius: 3px;
+  }
+  .jb-home-bar {
+    height: 30px;
+    background: #f5f1eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .jb-home-bar::after {
+    content: '';
+    width: 100px;
+    height: 4px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 4px;
+  }
+
   /* ============ MOBILE ============ */
   @media (max-width: 900px) {
     .navbar { padding: 1rem 1.5rem; }
@@ -1038,6 +1187,7 @@
     .ds-phone-outer { width: 220px; }
     .ds-phone-screen { height: 420px; }
     .ds-carousel-section { height: 420px; }
+    .jb-phone-outer { width: 220px; }
   }
 
   @media (max-width: 500px) {
@@ -1053,8 +1203,7 @@
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <a href="#" class="nav-logo">
-    <div class="nav-logo-icon">و</div>
-    <span class="nav-logo-text">WAZEER</span>
+    <img src="WAZEER - Logo - Transparent (3).png" alt="WAZEER" style="height: 45px; width: auto;">
   </a>
   <ul class="nav-links">
     <li><a href="#jibril">JIBRIL</a></li>
@@ -1096,16 +1245,8 @@
       <div class="phone-glow"></div>
       <div class="phone-mockup">
         <div class="phone-frame">
-          <div class="phone-screen">
-            <div class="phone-screen-content">
-              <div class="arabic-text">
-                بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-              </div>
-              <div style="width:40px; height:2px; background:var(--gold); margin:0 auto 1rem; border-radius:2px; opacity:0.6;"></div>
-              <div class="translation">
-                "In the name of God, the Most Gracious,<br>the Most Merciful."
-              </div>
-            </div>
+          <div class="phone-screen" style="padding: 0; background: #000;">
+            <img src="Latest reel (2).png" alt="Wazeer App" style="width: 100%; height: 100%; object-fit: cover; display: block;">
           </div>
         </div>
       </div>
@@ -1134,10 +1275,7 @@
         <h3>JIBRIL — The Chatbot</h3>
         <p class="feature-acronym">Just an Intelligent Bot Rendering Islamic Learning</p>
         <p>
-          JIBRIL is not just another AI chatbot — it's your Islamic friend. Someone you can open your heart to without judgment. JIBRIL listens with empathy, and illuminates everything through the light of Qur'an and Hadith.
-        </p>
-        <p>
-          No fatwas. No judgments. Just thoughtful, source-backed Islamic guidance for real-life moments.
+          JIBRIL is not just another AI chatbot — it is your Islamic friend. A context-aware companion that understands your situation and offers meaningful guidance, duʿā, and reflections from the Qur'an and Sunnah when you need them most.
         </p>
         <div class="example-questions">
           <div class="example-q">
@@ -1155,31 +1293,39 @@
         </div>
       </div>
       <div class="feature-visual">
-        <div class="feature-phone">
-          <div class="feature-phone-screen">
-            <div class="chat-mockup">
-              <div class="chat-header">
-                <div class="chat-header-name">JIBRIL</div>
-                <div class="chat-header-status">Your Islamic companion</div>
+        <div class="jb-phone-wrap">
+          <div class="jb-phone-outer">
+            <div class="jb-btn jb-btn-vol-up"></div>
+            <div class="jb-btn jb-btn-vol-down"></div>
+            <div class="jb-btn jb-btn-power"></div>
+            <div class="jb-phone-frame">
+              <div class="jb-status-bar">
+                <span class="jb-time">9:41</span>
+                <div class="jb-island"></div>
+                <div class="jb-status-icons">
+                  <svg width="16" height="11" viewBox="0 0 16 11" fill="none">
+                    <circle cx="8" cy="9.5" r="1.5" fill="white"/>
+                    <path d="M4.5 6.5a5 5 0 0 1 7 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M1 3.5a10 10 0 0 1 14 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  </svg>
+                  <svg width="24" height="11" viewBox="0 0 24 11" fill="none">
+                    <rect x="0.5" y="0.5" width="19" height="10" rx="2.5" stroke="white" stroke-opacity="0.35"/>
+                    <rect x="1.5" y="1.5" width="15" height="8" rx="1.5" fill="white"/>
+                    <path d="M20.5 3.5v4a2 2 0 0 0 0-4Z" fill="white" opacity="0.4"/>
+                  </svg>
+                </div>
               </div>
-              <div class="chat-body">
-                <div class="chat-bubble user" style="animation-delay: 0.2s">
-                  I missed my prayer because my meeting ran late. I feel terrible about it.
-                </div>
-                <div class="chat-bubble bot" style="animation-delay: 0.6s">
-                  I understand how that feels. Know that Allah is the Most Merciful. The Prophet ﷺ said: "Whoever forgets a prayer or sleeps through it, the expiation is to pray it as soon as they remember." You can still make it up with sincerity.
-                </div>
-                <div class="chat-bubble user" style="animation-delay: 1s">
-                  Should I also make du'a about it?
-                </div>
-                <div class="chat-bubble bot" style="animation-delay: 1.4s">
-                  Absolutely. Turn to Allah with sincere repentance. He loves those who repent and purify themselves (Qur'an 2:222). Your awareness itself shows your love for Salah. 💚
-                </div>
+              <div class="jb-carousel" id="jibrilCarousel">
+                <div class="jb-slide"><img src="JIBRIL Question 1.png" alt="JIBRIL Question 1"></div>
+                <div class="jb-slide"><img src="JIBRIL Question 2.png" alt="JIBRIL Question 2"></div>
+                <div class="jb-slide"><img src="JIBRIL Question 3.png" alt="JIBRIL Question 3"></div>
               </div>
-              <div class="chat-input-mock">
-                <div class="chat-input-field">Ask JIBRIL anything...</div>
-                <div class="chat-send-btn">▶</div>
+              <div class="jb-dots">
+                <div class="jb-dot active"></div>
+                <div class="jb-dot"></div>
+                <div class="jb-dot"></div>
               </div>
+              <div class="jb-home-bar"></div>
             </div>
           </div>
         </div>
@@ -1368,6 +1514,50 @@
       carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
     });
   });
+
+  // JIBRIL carousel
+  (function() {
+    const carousel = document.getElementById('jibrilCarousel');
+    if (!carousel) return;
+    const dots = carousel.parentElement.querySelectorAll('.jb-dot');
+    const slideCount = carousel.querySelectorAll('.jb-slide').length;
+    let currentIndex = 0;
+
+    function goToSlide(index) {
+      currentIndex = index;
+      carousel.scrollTo({ left: index * carousel.offsetWidth, behavior: 'smooth' });
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+
+    // Dot indicators on scroll
+    carousel.addEventListener('scroll', () => {
+      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      currentIndex = index;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    });
+
+    // Mouse drag
+    let isDown = false, startX, scrollLeft;
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+      e.preventDefault();
+    });
+    document.addEventListener('mouseup', () => { isDown = false; });
+    carousel.addEventListener('mouseleave', () => { isDown = false; });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const x = e.pageX - carousel.offsetLeft;
+      carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+
+    // Auto-advance every 4 seconds
+    setInterval(() => {
+      const next = (currentIndex + 1) % slideCount;
+      goToSlide(next);
+    }, 4000);
+  })();
 </script>
 
 </body>
