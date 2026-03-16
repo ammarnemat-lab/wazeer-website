@@ -51,44 +51,24 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    padding: 1.2rem 3rem;
+    padding: 0.8rem 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: var(--emerald-deep);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .navbar.scrolled {
-    background: rgba(251, 247, 240, 0.92);
+    background: rgba(13, 92, 56, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 1px 30px rgba(0,0,0,0.06);
-    padding: 0.8rem 3rem;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    padding: 0.6rem 3rem;
   }
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
     text-decoration: none;
-  }
-  .nav-logo-icon {
-    width: 38px;
-    height: 38px;
-    background: var(--emerald);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-family: var(--font-arabic);
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
-  .nav-logo-text {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--emerald-deep);
-    letter-spacing: 2px;
   }
   .nav-links {
     display: flex;
@@ -98,7 +78,7 @@
   }
   .nav-links a {
     text-decoration: none;
-    color: var(--ink-soft);
+    color: rgba(255,255,255,0.9);
     font-size: 0.92rem;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -111,24 +91,24 @@
     bottom: -4px; left: 0;
     width: 0;
     height: 2px;
-    background: var(--gold);
+    background: var(--white);
     transition: width 0.3s;
   }
-  .nav-links a:hover { color: var(--emerald); }
+  .nav-links a:hover { color: var(--white); }
   .nav-links a:hover::after { width: 100%; }
   .nav-cta {
-    background: var(--emerald) !important;
-    color: var(--white) !important;
+    background: var(--white) !important;
+    color: #1a1a1a !important;
     padding: 0.65rem 1.6rem;
     border-radius: 50px;
     font-weight: 600 !important;
     transition: all 0.3s !important;
-    box-shadow: 0 4px 15px rgba(27,122,78,0.25);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
   .nav-cta:hover {
-    background: var(--emerald-deep) !important;
+    background: var(--cream) !important;
     transform: translateY(-1px);
-    box-shadow: 0 6px 25px rgba(27,122,78,0.35);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
   }
   .nav-cta::after { display: none !important; }
 
@@ -268,7 +248,7 @@
   }
   .store-btn svg { width: 22px; height: 22px; }
 
-  /* Hero phone mockup */
+  /* Hero visual */
   .hero-visual {
     position: relative;
     display: flex;
@@ -277,59 +257,64 @@
     animation: fadeSlideUp 1s 0.4s ease forwards;
     opacity: 0;
   }
-  .phone-mockup {
+
+  /* ============ UNIFIED PHONE FRAME ============ */
+  .app-phone {
     position: relative;
-    width: 280px;
-    z-index: 2;
+    width: 290px;
   }
-  .phone-frame {
+  .app-phone-btn {
+    position: absolute;
+    background: #252525;
+    z-index: 10;
+  }
+  .app-phone-btn-vup {
+    left: -3px; top: 110px; width: 3px; height: 34px; border-radius: 2px 0 0 2px;
+  }
+  .app-phone-btn-vdn {
+    left: -3px; top: 154px; width: 3px; height: 34px; border-radius: 2px 0 0 2px;
+  }
+  .app-phone-btn-pwr {
+    right: -3px; top: 130px; width: 3px; height: 56px; border-radius: 0 2px 2px 0;
+  }
+  .app-phone-frame {
     width: 100%;
-    background: var(--ink);
-    border-radius: 40px;
-    padding: 12px;
+    aspect-ratio: 9 / 19.5;
+    background: #1a1a1a;
+    border-radius: 44px;
     box-shadow:
-      0 30px 80px rgba(0,0,0,0.2),
-      0 0 0 1px rgba(255,255,255,0.1) inset;
-  }
-  .phone-screen {
-    width: 100%;
-    border-radius: 30px;
+      0 40px 100px rgba(0,0,0,0.4),
+      inset 0 0 0 1.5px rgba(255,255,255,0.1),
+      inset 0 0 0 4px rgba(0,0,0,0.8);
     overflow: hidden;
-    aspect-ratio: 9/19.5;
-    background: linear-gradient(160deg, #0D5C38, #1B7A4E, #2A9D6F);
     display: flex;
     flex-direction: column;
+  }
+  .app-phone-img {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: block;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .app-phone-home {
+    height: 30px;
+    background: #1a1a1a;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1.5rem;
-    position: relative;
+    flex-shrink: 0;
   }
-  .phone-screen::before {
+  .app-phone-home::after {
     content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(212,168,67,0.2) 0%, transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
-  }
-  .phone-screen-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: var(--white);
-  }
-  .phone-screen-content .arabic-text {
-    font-family: var(--font-arabic);
-    font-size: 1.6rem;
-    line-height: 2;
-    margin-bottom: 1.5rem;
-    opacity: 0.95;
-  }
-  .phone-screen-content .translation {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    font-style: italic;
-    line-height: 1.6;
+    width: 100px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
   }
   .phone-glow {
     position: absolute;
@@ -502,163 +487,6 @@
     display: flex;
     justify-content: center;
     position: relative;
-  }
-  .feature-phone {
-    width: 260px;
-    background: var(--ink);
-    border-radius: 36px;
-    padding: 10px;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .feature-phone:hover {
-    transform: translateY(-8px) rotate(1deg);
-  }
-  .feature-phone-screen {
-    border-radius: 28px;
-    overflow: hidden;
-    aspect-ratio: 9/19.5;
-    position: relative;
-  }
-  .chat-mockup {
-    width: 100%;
-    height: 100%;
-    background: #F5F1EB;
-    display: flex;
-    flex-direction: column;
-  }
-  .chat-header {
-    background: var(--emerald);
-    padding: 2.2rem 1rem 0.8rem;
-    text-align: center;
-    color: var(--white);
-  }
-  .chat-header-name {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 700;
-  }
-  .chat-header-status {
-    font-size: 0.6rem;
-    opacity: 0.7;
-    margin-top: 2px;
-  }
-  .chat-body {
-    flex: 1;
-    padding: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    overflow: hidden;
-  }
-  .chat-bubble {
-    max-width: 85%;
-    padding: 0.6rem 0.9rem;
-    border-radius: 14px;
-    font-size: 0.62rem;
-    line-height: 1.6;
-    animation: bubbleIn 0.5s ease forwards;
-  }
-  .chat-bubble.user {
-    background: var(--emerald);
-    color: var(--white);
-    align-self: flex-end;
-    border-bottom-right-radius: 4px;
-  }
-  .chat-bubble.bot {
-    background: var(--white);
-    color: var(--ink-soft);
-    align-self: flex-start;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  .chat-input-mock {
-    padding: 0.6rem 0.8rem;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .chat-input-field {
-    flex: 1;
-    background: var(--white);
-    border-radius: 20px;
-    padding: 0.45rem 0.8rem;
-    font-size: 0.58rem;
-    color: var(--ink-muted);
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-  .chat-send-btn {
-    width: 26px; height: 26px;
-    background: var(--emerald);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.6rem;
-  }
-
-  /* Feed mockup */
-  .feed-mockup {
-    width: 100%;
-    height: 100%;
-    background: #0B0E13;
-    display: flex;
-    flex-direction: column;
-  }
-  .feed-header {
-    padding: 2.2rem 1rem 0.8rem;
-    text-align: center;
-    color: var(--white);
-  }
-  .feed-header-name {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--gold);
-  }
-  .feed-body {
-    flex: 1;
-    padding: 0.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    overflow: hidden;
-  }
-  .feed-card-mock {
-    background: rgba(255,255,255,0.06);
-    border-radius: 14px;
-    padding: 0.9rem;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-  .feed-card-mock .verse-label {
-    font-size: 0.5rem;
-    color: var(--gold-light);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  .feed-card-mock .verse-arabic {
-    font-family: var(--font-arabic);
-    font-size: 0.9rem;
-    color: var(--white);
-    line-height: 2;
-    margin-bottom: 0.4rem;
-    text-align: right;
-  }
-  .feed-card-mock .verse-translation {
-    font-size: 0.55rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-  }
-  .feed-card-mock.hadith {
-    background: linear-gradient(135deg, rgba(27,122,78,0.15), rgba(27,122,78,0.05));
-    border-color: rgba(27,122,78,0.15);
-  }
-  .feed-card-mock.hadith .verse-label {
-    color: var(--emerald-light);
   }
 
   /* ============ DEENSCROLLING BANNER ============ */
@@ -846,88 +674,15 @@
     transform: translateY(0);
   }
 
-  /* ============ DEENSCROLLING PHONE MOCKUP ============ */
+  /* ============ DEENSCROLLING CONTENT ============ */
   .ds-phone-wrap {
     display: flex;
     justify-content: center;
     position: relative;
   }
-  .ds-phone-outer {
-    position: relative;
-    width: 260px;
-  }
-  .ds-btn {
-    position: absolute;
-    background: #252525;
-    z-index: 10;
-  }
-  .ds-btn-vol-up {
-    left: -3px;
-    top: 110px;
-    width: 3px;
-    height: 34px;
-    border-radius: 2px 0 0 2px;
-  }
-  .ds-btn-vol-down {
-    left: -3px;
-    top: 154px;
-    width: 3px;
-    height: 34px;
-    border-radius: 2px 0 0 2px;
-  }
-  .ds-btn-power {
-    right: -3px;
-    top: 130px;
-    width: 3px;
-    height: 56px;
-    border-radius: 0 2px 2px 0;
-  }
-  .ds-phone-frame {
-    width: 100%;
-    background: #1a1a1a;
-    border-radius: 44px;
-    box-shadow:
-      0 40px 100px rgba(0,0,0,0.4),
-      inset 0 0 0 1.5px rgba(255,255,255,0.1),
-      inset 0 0 0 4px rgba(0,0,0,0.8);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .ds-status-bar {
-    height: 50px;
-    background: #0B0E13;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 22px;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .ds-time {
-    font-size: 12px;
-    font-weight: 700;
-    color: white;
-    font-family: var(--font-body);
-    letter-spacing: 0.3px;
-  }
-  .ds-island {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10px;
-    width: 88px;
-    height: 28px;
-    background: #000;
-    border-radius: 20px;
-  }
-  .ds-status-icons {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
   .ds-phone-screen {
-    height: 500px;
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
     overflow-x: hidden;
     background: #0B0E13;
@@ -937,7 +692,7 @@
   }
   .ds-phone-screen::-webkit-scrollbar { display: none; }
   .ds-carousel-section {
-    height: 500px;
+    height: 100%;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -992,108 +747,42 @@
     width: 18px;
     border-radius: 3px;
   }
-  .ds-home-bar {
-    height: 30px;
-    background: #0B0E13;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .ds-home-bar::after {
-    content: '';
-    width: 100px;
-    height: 4px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 4px;
-  }
-
-  /* ============ JIBRIL PHONE CAROUSEL ============ */
+  /* ============ JIBRIL CAROUSEL CONTENT ============ */
   .jb-phone-wrap {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
+    gap: 0.8rem;
   }
-  .jb-phone-outer {
-    position: relative;
-    width: 260px;
-  }
-  .jb-btn {
-    position: absolute;
-    background: #252525;
-    z-index: 10;
-  }
-  .jb-btn-vol-up {
-    left: -3px;
-    top: 110px;
-    width: 3px;
-    height: 34px;
-    border-radius: 2px 0 0 2px;
-  }
-  .jb-btn-vol-down {
-    left: -3px;
-    top: 154px;
-    width: 3px;
-    height: 34px;
-    border-radius: 2px 0 0 2px;
-  }
-  .jb-btn-power {
-    right: -3px;
-    top: 130px;
-    width: 3px;
-    height: 56px;
-    border-radius: 0 2px 2px 0;
-  }
-  .jb-phone-frame {
-    width: 100%;
-    background: #1a1a1a;
-    border-radius: 44px;
-    box-shadow:
-      0 40px 100px rgba(0,0,0,0.4),
-      inset 0 0 0 1.5px rgba(255,255,255,0.1),
-      inset 0 0 0 4px rgba(0,0,0,0.8);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .jb-status-bar {
-    height: 50px;
-    background: #f5f1eb;
+  .jb-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1.5px solid var(--cream-dark);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 22px;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
     flex-shrink: 0;
-    position: relative;
+    color: var(--ink-soft);
+    font-size: 0;
   }
-  .jb-time {
-    font-size: 12px;
-    font-weight: 700;
-    color: #1a1a1a;
-    font-family: var(--font-body);
-    letter-spacing: 0.3px;
+  .jb-arrow:hover {
+    background: var(--emerald);
+    border-color: var(--emerald);
+    color: var(--white);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(27,122,78,0.25);
   }
-  .jb-island {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10px;
-    width: 88px;
-    height: 28px;
-    background: #000;
-    border-radius: 20px;
+  .jb-arrow svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
   }
-  .jb-status-icons {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .jb-status-icons svg { fill: #1a1a1a; }
-  .jb-status-icons circle, .jb-status-icons path[stroke] { stroke: #1a1a1a; fill: none; }
-  .jb-status-icons circle[fill] { fill: #1a1a1a; }
-  .jb-status-icons rect[stroke] { stroke: #1a1a1a; stroke-opacity: 0.35; }
-  .jb-status-icons rect[fill] { fill: #1a1a1a; }
-  .jb-status-icons path[fill]:not([stroke]) { fill: #1a1a1a; }
   .jb-carousel {
     display: flex;
     overflow-x: auto;
@@ -1101,7 +790,9 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     cursor: grab;
-    aspect-ratio: 9/17;
+    flex: 1;
+    min-height: 0;
+    background: #1a1a1a;
   }
   .jb-carousel:active { cursor: grabbing; }
   .jb-carousel::-webkit-scrollbar { display: none; }
@@ -1113,7 +804,7 @@
   .jb-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     pointer-events: none;
     user-select: none;
@@ -1125,38 +816,22 @@
     align-items: center;
     gap: 5px;
     padding: 8px 0;
-    background: #f5f1eb;
+    background: #1a1a1a;
     flex-shrink: 0;
   }
   .jb-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.25);
     transition: all 0.3s ease;
     flex-shrink: 0;
   }
   .jb-dot.active {
-    background: var(--emerald);
+    background: var(--gold);
     width: 18px;
     border-radius: 3px;
   }
-  .jb-home-bar {
-    height: 30px;
-    background: #f5f1eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .jb-home-bar::after {
-    content: '';
-    width: 100px;
-    height: 4px;
-    background: rgba(0,0,0,0.15);
-    border-radius: 4px;
-  }
-
   /* ============ MOBILE ============ */
   @media (max-width: 900px) {
     .navbar { padding: 1rem 1.5rem; }
@@ -1182,12 +857,7 @@
     .floating-card { display: none; }
     .cta-inner { padding: 0 1.5rem; }
     .deen-banner-inner { padding: 0 1.5rem; }
-    .phone-mockup { width: 220px; }
-    .feature-phone { width: 220px; }
-    .ds-phone-outer { width: 220px; }
-    .ds-phone-screen { height: 420px; }
-    .ds-carousel-section { height: 420px; }
-    .jb-phone-outer { width: 220px; }
+    .app-phone { width: 240px; }
   }
 
   @media (max-width: 500px) {
@@ -1203,7 +873,7 @@
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <a href="#" class="nav-logo">
-    <img src="WAZEER - Logo - Transparent (3).png" alt="WAZEER" style="height: 45px; width: auto;">
+    <img src="WAZEER - Logo - Transparent (3).png" alt="WAZEER" style="height: 80px; width: auto;">
   </a>
   <ul class="nav-links">
     <li><a href="#jibril">JIBRIL</a></li>
@@ -1243,11 +913,13 @@
     </div>
     <div class="hero-visual">
       <div class="phone-glow"></div>
-      <div class="phone-mockup">
-        <div class="phone-frame">
-          <div class="phone-screen" style="padding: 0; background: #000;">
-            <img src="Latest reel (2).png" alt="Wazeer App" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
+      <div class="app-phone" style="z-index: 2;">
+        <div class="app-phone-btn app-phone-btn-vup"></div>
+        <div class="app-phone-btn app-phone-btn-vdn"></div>
+        <div class="app-phone-btn app-phone-btn-pwr"></div>
+        <div class="app-phone-frame">
+          <img src="Latest reel (2).png" alt="Wazeer App" class="app-phone-img">
+          <div class="app-phone-home"></div>
         </div>
       </div>
       <div class="floating-card card1">
@@ -1279,42 +951,33 @@
         </p>
         <div class="example-questions">
           <div class="example-q">
-            <div class="q-icon">💭</div>
-            <span>"My friends want to meet but I don't feel like going out."</span>
+            <div class="q-icon">✂️</div>
+            <span>"Can I trim or shave chest hair?"</span>
           </div>
           <div class="example-q">
-            <div class="q-icon">🕐</div>
-            <span>"My meeting got extended and I missed my prayer."</span>
+            <div class="q-icon">🧪</div>
+            <span>"Is vanilla extract halal if it contains alcohol?"</span>
+          </div>
+          <div class="example-q">
+            <div class="q-icon">🎄</div>
+            <span>"Can Muslims say Merry Christmas to non-Muslims?"</span>
           </div>
           <div class="example-q">
             <div class="q-icon">😔</div>
-            <span>"I joked with a friend and they got upset with me."</span>
+            <span>"I feel bad because my exams went bad"</span>
           </div>
         </div>
       </div>
       <div class="feature-visual">
         <div class="jb-phone-wrap">
-          <div class="jb-phone-outer">
-            <div class="jb-btn jb-btn-vol-up"></div>
-            <div class="jb-btn jb-btn-vol-down"></div>
-            <div class="jb-btn jb-btn-power"></div>
-            <div class="jb-phone-frame">
-              <div class="jb-status-bar">
-                <span class="jb-time">9:41</span>
-                <div class="jb-island"></div>
-                <div class="jb-status-icons">
-                  <svg width="16" height="11" viewBox="0 0 16 11" fill="none">
-                    <circle cx="8" cy="9.5" r="1.5" fill="white"/>
-                    <path d="M4.5 6.5a5 5 0 0 1 7 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <path d="M1 3.5a10 10 0 0 1 14 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                  </svg>
-                  <svg width="24" height="11" viewBox="0 0 24 11" fill="none">
-                    <rect x="0.5" y="0.5" width="19" height="10" rx="2.5" stroke="white" stroke-opacity="0.35"/>
-                    <rect x="1.5" y="1.5" width="15" height="8" rx="1.5" fill="white"/>
-                    <path d="M20.5 3.5v4a2 2 0 0 0 0-4Z" fill="white" opacity="0.4"/>
-                  </svg>
-                </div>
-              </div>
+          <div class="jb-arrow" id="jbPrev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </div>
+          <div class="app-phone">
+            <div class="app-phone-btn app-phone-btn-vup"></div>
+            <div class="app-phone-btn app-phone-btn-vdn"></div>
+            <div class="app-phone-btn app-phone-btn-pwr"></div>
+            <div class="app-phone-frame">
               <div class="jb-carousel" id="jibrilCarousel">
                 <div class="jb-slide"><img src="JIBRIL Question 1.png" alt="JIBRIL Question 1"></div>
                 <div class="jb-slide"><img src="JIBRIL Question 2.png" alt="JIBRIL Question 2"></div>
@@ -1325,8 +988,11 @@
                 <div class="jb-dot"></div>
                 <div class="jb-dot"></div>
               </div>
-              <div class="jb-home-bar"></div>
+              <div class="app-phone-home"></div>
             </div>
+          </div>
+          <div class="jb-arrow" id="jbNext" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
           </div>
         </div>
       </div>
@@ -1346,27 +1012,11 @@
       </div>
       <div class="feature-visual">
         <div class="ds-phone-wrap">
-          <div class="ds-phone-outer">
-            <div class="ds-btn ds-btn-vol-up"></div>
-            <div class="ds-btn ds-btn-vol-down"></div>
-            <div class="ds-btn ds-btn-power"></div>
-            <div class="ds-phone-frame">
-              <div class="ds-status-bar">
-                <span class="ds-time">9:41</span>
-                <div class="ds-island"></div>
-                <div class="ds-status-icons">
-                  <svg width="16" height="11" viewBox="0 0 16 11" fill="none">
-                    <circle cx="8" cy="9.5" r="1.5" fill="white"/>
-                    <path d="M4.5 6.5a5 5 0 0 1 7 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <path d="M1 3.5a10 10 0 0 1 14 0" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                  </svg>
-                  <svg width="24" height="11" viewBox="0 0 24 11" fill="none">
-                    <rect x="0.5" y="0.5" width="19" height="10" rx="2.5" stroke="white" stroke-opacity="0.35"/>
-                    <rect x="1.5" y="1.5" width="15" height="8" rx="1.5" fill="white"/>
-                    <path d="M20.5 3.5v4a2 2 0 0 0 0-4Z" fill="white" opacity="0.4"/>
-                  </svg>
-                </div>
-              </div>
+          <div class="app-phone">
+            <div class="app-phone-btn app-phone-btn-vup"></div>
+            <div class="app-phone-btn app-phone-btn-vdn"></div>
+            <div class="app-phone-btn app-phone-btn-pwr"></div>
+            <div class="app-phone-frame">
               <div class="ds-phone-screen">
                 <div class="ds-carousel-section">
                   <div class="ds-carousel" data-carousel="0">
@@ -1389,7 +1039,7 @@
                   </div>
                 </div>
               </div>
-              <div class="ds-home-bar"></div>
+              <div class="app-phone-home"></div>
             </div>
           </div>
         </div>
@@ -1550,6 +1200,14 @@
       if (!isDown) return;
       const x = e.pageX - carousel.offsetLeft;
       carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+
+    // Arrow buttons
+    document.getElementById('jbPrev').addEventListener('click', () => {
+      goToSlide((currentIndex - 1 + slideCount) % slideCount);
+    });
+    document.getElementById('jbNext').addEventListener('click', () => {
+      goToSlide((currentIndex + 1) % slideCount);
     });
 
     // Auto-advance every 4 seconds

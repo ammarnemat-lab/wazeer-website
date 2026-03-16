@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which convert:*)",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(py:*)"
+    ]
+  }
+}
