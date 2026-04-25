@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — WAZEER</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #1B7A4E;
+    --emerald-deep: #0D5C38;
+    --emerald-light: #2A9D6F;
+    --gold: #D4A843;
+    --gold-light: #E8C97A;
+    --cream: #FBF7F0;
+    --cream-dark: #F0EAE0;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --ink-muted: #6B6B6B;
+    --white: #FFFFFF;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0.8rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--emerald-deep);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .navbar.scrolled {
+    background: rgba(13, 92, 56, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    padding: 0.6rem 3rem;
+  }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--white);
+    color: var(--ink);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .nav-cta:hover {
+    background: var(--cream);
+    transform: translateY(-1px);
+  }
+  .nav-ig {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+  }
+  .nav-ig:hover {
+    background: var(--gold);
+    color: var(--ink) !important;
+    transform: translateY(-2px);
+  }
+
+  /* ============ PAGE HEADER ============ */
+  .page-header {
+    padding: 10rem 3rem 4rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(27,122,78,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(212,168,67,0.05) 0%, transparent 60%),
+      var(--cream);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .breadcrumb {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  .breadcrumb a {
+    color: var(--emerald);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.15;
+  }
+  .page-header h1 .accent { color: var(--emerald); }
+  .page-meta {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  /* ============ ARTICLE ============ */
+  .legal {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .legal p, .legal li {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .legal h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--emerald);
+    margin: 3rem 0 1rem;
+    padding-top: 1rem;
+    line-height: 1.25;
+    border-top: 1px solid rgba(27,122,78,0.12);
+  }
+  .legal h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .legal h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 1.8rem 0 0.7rem;
+  }
+  .legal ul, .legal ol {
+    margin: 0.5rem 0 1.2rem 1.5rem;
+  }
+  .legal li { margin-bottom: 0.5rem; }
+  .legal strong { color: var(--ink); font-weight: 600; }
+  .legal a {
+    color: var(--emerald);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(27,122,78,0.3);
+    transition: border-color 0.2s;
+  }
+  .legal a:hover { border-bottom-color: var(--emerald); }
+  .legal .lede {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    padding: 1.2rem 1.4rem;
+    background: rgba(212,168,67,0.06);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 2rem;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--ink);
+    padding: 3rem;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-copy a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+  }
+  .footer-copy a:hover { color: var(--gold); }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 900px) {
+    .navbar { padding: 1rem 1.5rem; }
+    .navbar.scrolled { padding: 0.7rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-header { padding: 8rem 1.5rem 3rem; }
+    .legal { padding: 3rem 1.5rem 4rem; }
+    .legal h2 { font-size: 1.45rem; margin-top: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="WAZEER - Logo - Transparent (3).png" alt="WAZEER" style="height: 70px; width: auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#jibril">JIBRIL</a></li>
+    <li><a href="index.html#deenscrolling">Deenscrolling</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="https://www.instagram.com/wazeer.app/" target="_blank" rel="noopener" class="nav-ig" aria-label="Wazeer on Instagram" style="color: rgba(255,255,255,0.9);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a></li>
+    <li><a href="index.html#download" class="nav-cta">Download</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="breadcrumb"><a href="index.html">← Back to home</a></div>
+  <h1>Privacy <span class="accent">Policy</span></h1>
+  <div class="page-meta">Updated February 26, 2026</div>
+</header>
+
+<!-- LEGAL CONTENT -->
+<article class="legal">
+
+  <p class="lede">WAZEER is a proprietary product of CyberCradle, a sole proprietorship (Einzelunternehmen) registered in Germany (<a href="http://www.cybercradle.de" target="_blank" rel="noopener">www.cybercradle.de</a>), operated by Ammar Nemat (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share personal information when you use WAZEER.</p>
+
+  <p>This Privacy Policy applies to the WAZEER mobile application and any related services we provide (together, the &ldquo;Service&rdquo;), including our website and related pages. By accessing or using the Service, you confirm that you have read and understood this Privacy Policy.</p>
+
+  <p>This Privacy Policy should be read together with our <a href="terms-and-conditions.html">Terms &amp; Conditions</a>.</p>
+
+  <h2>Definitions and Key Terms</h2>
+  <p>To help explain things as clearly as possible in this Privacy Policy, every time any of these terms are referenced, are strictly defined as:</p>
+  <ul>
+    <li><strong>Cookies (Website only):</strong> Small pieces of data stored by your web browser when you visit a website. If we operate a website, it may use cookies or similar technologies.</li>
+    <li><strong>Company / We / Us / Our / WAZEER:</strong> Ammar Nemat, operating as CyberCradle, a sole proprietorship (Einzelunternehmen) registered in Germany (www.cybercradle.de), Goltzstraße 63, 13587 Berlin, Germany (the operator and data controller for the Service).</li>
+    <li><strong>Country:</strong> where WAZEER or the owners/founders of WAZEER are based, in this case is Germany.</li>
+    <li><strong>Device:</strong> any internet connected device such as a phone, tablet, computer or any other device that can be used to visit WAZEER and use the services.</li>
+    <li><strong>IP address:</strong> Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet.</li>
+    <li><strong>Personal Data:</strong> Information that identifies you or can reasonably be used to identify you, directly or indirectly.</li>
+    <li><strong>Service:</strong> The App and any related services, features, and content provided through WAZEER (and our website, if any).</li>
+    <li><strong>Third-party service:</strong> Services provided by third parties that we may use to operate or improve the Service (for example, app stores, analytics, crash reporting, payment providers, AI service providers, or advertising services, if used).</li>
+    <li><strong>App/Application:</strong> The WAZEER mobile application and any updates provided through Apple App Store or Google Play.</li>
+    <li><strong>AI-Generated Content:</strong> Content produced by artificial intelligence models provided by third-party API services (such as OpenAI) in response to user prompts within the App.</li>
+    <li><strong>You/User:</strong> The individual who accesses or uses the Service.</li>
+  </ul>
+
+  <h2>What Information Do We Collect?</h2>
+  <p>We collect personal information in the following ways:</p>
+  <h3>Website (Wazeer.app)</h3>
+  <ul>
+    <li>Email address (when you submit it for early access / updates)</li>
+    <li>Basic technical data (such as IP address, device/browser information, and pages visited), which may be collected by Wix and similar technologies for security and website functionality.</li>
+  </ul>
+  <h3>App (WAZEER)</h3>
+  <p>We also collect:</p>
+  <ul>
+    <li><strong>Camera (Pictures):</strong> Granting camera permission allows the user to upload any picture straight from the platform. You can safely deny camera permissions for this platform.</li>
+    <li><strong>Photo Gallery (Pictures):</strong> Granting photo gallery access allows the user to upload any picture from their photo gallery. You can safely deny photo gallery access for this platform.</li>
+    <li><strong>Account information</strong> (e.g., email address and sign-in method such as Apple Sign-In or Google Sign-In, if you create an account).</li>
+    <li><strong>Subscription information</strong> (subscription status and transaction identifiers from Apple/Google for WAZEER Plus).</li>
+    <li><strong>App usage and technical logs</strong> (device info, app version, crash logs).</li>
+    <li><strong>Advertising-related data</strong> for free users (via Google AdMob and ad partners; WAZEER Plus is ad-free).</li>
+  </ul>
+
+  <h2>AI-Generated Content and Third-Party AI Services</h2>
+  <p>WAZEER includes an AI-powered feature that provides Islamic guidance responses to users. This feature is powered by a third-party AI service provider (currently OpenAI) through their application programming interface (API).</p>
+  <h3>What We Send to the AI Provider</h3>
+  <p>When you use the AI guidance feature, only the text of your message/prompt is sent to the AI provider&rsquo;s API to generate a response. We do not send any personal information to the AI provider, including but not limited to your name, email address, account identifiers, device information, IP address, or any other data that could identify you.</p>
+  <p>Conversation histories are not stored by us and are not sent as context to the AI provider. Each interaction with the AI feature is treated as an independent request.</p>
+  <h3>How the AI Provider Handles Your Data</h3>
+  <p>Our AI provider (OpenAI) operates under the following data practices for API customers:</p>
+  <ul>
+    <li>Data sent through the API is not used to train or improve OpenAI&rsquo;s models (unless the customer explicitly opts in, which we have not done).</li>
+    <li>OpenAI may retain API inputs and outputs in abuse monitoring logs for up to 30 days for safety and abuse prevention purposes, after which they are deleted.</li>
+    <li>For full details on how OpenAI handles API data, please refer to OpenAI&rsquo;s API data usage policy at <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">https://openai.com/policies/api-data-usage-policies</a>.</li>
+  </ul>
+  <h3>Important Disclaimers About AI-Generated Content</h3>
+  <ul>
+    <li>AI-generated responses are provided for informational and educational purposes only and should not be treated as authoritative religious rulings (fatwas) or a substitute for consultation with qualified Islamic scholars.</li>
+    <li>AI-generated content may occasionally contain inaccuracies, errors, or incomplete information. We encourage users to verify any guidance with qualified scholars or trusted Islamic sources.</li>
+    <li>We do not guarantee the accuracy, completeness, or reliability of AI-generated content.</li>
+    <li>We are not responsible for any decisions made or actions taken based on AI-generated content within the App.</li>
+  </ul>
+
+  <h2>When Do We Receive Information from Third Parties?</h2>
+  <p>We may receive limited information about you from third parties only when it is necessary to provide the Service. For example:</p>
+  <p><strong>App Stores (Apple App Store / Google Play):</strong> If you purchase a subscription, we may receive information such as your purchase status, subscription type, and transaction identifiers, so we can enable paid features. We do not receive your full payment card details from the app stores.</p>
+  <p><strong>Third-party service providers:</strong> We may use providers for analytics, crash reporting, or customer support. These providers may process limited technical data (such as device information, app version, and event logs) to help us operate and improve the Service.</p>
+  <p><strong>AI service providers:</strong> We receive AI-generated text responses from our AI provider in response to user prompts. No personal information is included in these exchanges.</p>
+  <p>We do not collect your personal information from social media platforms unless you choose to connect a social media account to the Service (if such a feature is offered). If we introduce such a feature in the future, we will explain what data is collected and give you choices through the Service and this Privacy Policy.</p>
+
+  <h2>Do We Share the Information We Collect with Third Parties?</h2>
+  <p>We do not sell your personal information. However, we may share certain information with third parties in the situations below:</p>
+  <h3>1) Advertising (Google AdMob)</h3>
+  <p>We display ads in the App using Google AdMob, a mobile advertising platform provided by Google. To show ads, measure performance, and prevent fraud, Google and its advertising partners may automatically collect and process certain information, such as:</p>
+  <ul>
+    <li>Advertising identifiers (e.g., Apple IDFA or Google Advertising ID) where available</li>
+    <li>Device information (device type, OS version, language, app version)</li>
+    <li>IP address (often used to estimate general location and for fraud prevention)</li>
+    <li>Non-user related crash logs and diagnostic information</li>
+    <li>Ad interaction data (impressions, clicks, frequency, and performance metrics)</li>
+  </ul>
+  <p>All data collected by the Google Mobile Ads SDK is encrypted in transit using TLS. Depending on your region and settings, ads may be personalized or non-personalized. Where required by law (for example, in the EEA/UK), we request consent before enabling personalized advertising.</p>
+  <p>If you subscribe to WAZEER Plus, ads will be disabled in the App.</p>
+  <h3>2) AI Service Providers</h3>
+  <p>When you use the AI guidance feature, only the text of your prompt is sent to our third-party AI provider (currently OpenAI) to generate a response. We do not send any personal information, account identifiers, device information, or any other data that could identify you to the AI provider. The AI provider processes the prompt solely to generate a response and does not use API data to train its models.</p>
+  <h3>3) Service Providers (Processors)</h3>
+  <p>We may use trusted third-party providers to help operate and improve the Service (for example: hosting, database/storage, analytics, crash reporting, email/support tools, and subscription management). These providers may process personal data on our behalf only for the purposes of providing their services to us.</p>
+  <h3>4) App Stores and Purchases</h3>
+  <p>If you purchase a subscription through the Apple App Store or Google Play, we receive purchase-related information (such as subscription status and transaction identifiers) to enable paid features. We do not receive your full payment card details from the app stores.</p>
+  <h3>5) Legal Obligations and Protection</h3>
+  <p>We may disclose information if required by law or if we reasonably believe disclosure is necessary to comply with a legal obligation, respond to lawful requests, protect our rights, prevent fraud or abuse, or protect the safety of users or others.</p>
+  <h3>6) Business Changes</h3>
+  <p>If we are involved in a merger, acquisition, financing, reorganization, or sale of assets, user information may be transferred as part of that transaction. If this happens, we will provide notice where required by law.</p>
+  <p>We share information only to the extent necessary for the purposes described above.</p>
+
+  <h2>Where and When Do We Collect Information?</h2>
+  <h3>Website (Wazeer.app)</h3>
+  <ul>
+    <li>Email address (waitlist / early access)</li>
+    <li>Optionally: name (only if you provide it)</li>
+    <li>IP/device/browser data (via Wix logs/cookies)</li>
+  </ul>
+  <h3>App (WAZEER)</h3>
+  <p>We collect information in the following ways:</p>
+  <ol>
+    <li><strong>Information you provide to us:</strong> For example, when you create an account (if available), contact support, submit feedback, use the AI guidance feature, or choose to subscribe to WAZEER Plus.</li>
+    <li><strong>Information collected automatically when you use the App:</strong> For example, device information, app usage data (such as screens viewed or feature usage), and technical logs that help us operate, secure, and improve the Service.</li>
+    <li><strong>Information we receive from third parties:</strong> For example: App Stores (subscription status), Advertising partners (ad delivery and performance data for free users), AI service provider (AI-generated text responses), Service providers (analytics/crash reporting/support tools).</li>
+  </ol>
+
+  <h2>How Do We Use the Information We Collect?</h2>
+  <p>Any of the information we collect from you may be used in one of the following ways:</p>
+  <ul>
+    <li>To personalize your experience</li>
+    <li>To improve our App</li>
+    <li>To improve customer service</li>
+    <li>To process transactions</li>
+    <li>To administer a contest, promotion, survey or other site feature</li>
+    <li>To send periodic emails</li>
+    <li>To provide and improve AI-generated content features within the App</li>
+  </ul>
+
+  <h2>How Do We Use Your Email Address?</h2>
+  <p>By submitting your email address on Wazeer.app, we will notify you about the early access and beta launch. By submitting your email address on this App, you agree to receive emails from us. You can cancel your participation in any of these email lists at any time by clicking on the opt-out link or other unsubscribe option that is included in the respective email. We only send emails to people who have authorized us to contact them, either directly, or through a third party. We do not send unsolicited commercial emails, because we hate spam as much as you do.</p>
+  <p><strong>Note:</strong> If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</p>
+
+  <h2>How Long Do We Keep Your Information?</h2>
+  <p>We keep your personal information only for as long as necessary to provide the Service and for the purposes described in this Privacy Policy.</p>
+  <p>We may also retain certain information for longer where required to comply with legal obligations, resolve disputes, enforce our agreements, or protect our rights.</p>
+  <p>When we no longer need your information, we will delete it, anonymize it, or de-identify it so it can no longer be linked to you. In some cases, information may remain in backup systems for a limited period before it is permanently deleted.</p>
+  <p><strong>AI-generated content:</strong> We do not store your prompts or AI-generated responses on our servers. Our AI provider (OpenAI) may retain API inputs and outputs in abuse monitoring logs for up to 30 days for safety purposes, after which they are deleted.</p>
+
+  <h2>How Do We Protect Your Information?</h2>
+  <p>We use reasonable administrative, technical, and organizational safeguards designed to protect personal information against unauthorized access, loss, misuse, or alteration.</p>
+  <p>Examples of safeguards may include access controls, encryption in transit (where applicable), and limiting access to personal information to those who need it to operate and support the Service.</p>
+  <p>Please note that no method of transmission over the internet or method of electronic storage is 100% secure. While we work to protect your information, we cannot guarantee absolute security.</p>
+  <p><strong>Payments:</strong> If you purchase WAZEER Plus through Apple App Store or Google Play, payments are processed by the app store provider. We do not receive or store your full payment card details. If we offer other payment options (e.g., Razorpay), payments are processed by that provider and we do not store full card numbers.</p>
+
+  <h2>Could My Information Be Transferred to Other Countries?</h2>
+  <p>We are based in Germany. To operate the Service, we use third-party providers and infrastructure (for example, authentication, database/storage, analytics/crash reporting, advertising, AI services, and payment services). As a result, your information may be processed in countries outside Germany, including the European Economic Area (EEA) and, depending on the provider, in countries such as the United States and India.</p>
+  <p>For example, we use third-party providers for sign-in/authentication (Apple Sign-In, Google Sign-In), cloud services (Firebase and storage), advertising (Google AdMob and ad network partners), AI-generated content (OpenAI, based in the United States), and payments (Razorpay, where available).</p>
+  <p>Where personal data is transferred outside the EEA/UK to a country that may not provide the same level of data protection, we take steps required by applicable law to protect it, such as using approved transfer mechanisms (for example, the European Commission&rsquo;s Standard Contractual Clauses) and, where appropriate, additional safeguards.</p>
+  <p><strong>Important:</strong> When you use the AI guidance feature, only the text of your prompt (which contains no personal identifiers) is transmitted to OpenAI&rsquo;s servers, which may be located in the United States. No personal data is included in these transmissions.</p>
+  <p>You can contact us via <a href="mailto:info@wazeer.app">info@wazeer.app</a> to request more information about the safeguards we use for international transfers.</p>
+
+  <h2>Is the Information Collected Through the WAZEER Service Secure?</h2>
+  <p>We take reasonable measures to help protect your information from unauthorized access, loss, misuse, alteration, or disclosure. These measures include appropriate technical and organizational safeguards.</p>
+  <p>However, no method of transmission over the internet and no method of electronic storage is completely secure. While we work to protect your personal information, we cannot guarantee absolute security.</p>
+  <p>If you believe your account or information has been compromised, please contact us at <a href="mailto:info@wazeer.app">info@wazeer.app</a>.</p>
+
+  <h2>Your Privacy Rights</h2>
+  <p>Depending on where you live, you may have certain rights regarding your personal information. These rights may include the ability to:</p>
+  <ul>
+    <li>Request access to the personal information we hold about you</li>
+    <li>Request correction of inaccurate or incomplete information</li>
+    <li>Request deletion of your personal information (subject to certain exceptions)</li>
+    <li>Request restriction of, or object to, certain processing</li>
+    <li>Request data portability (in some regions)</li>
+    <li>Withdraw consent where we rely on consent (this does not affect processing already carried out)</li>
+  </ul>
+  <h3>EEA/UK/Switzerland (GDPR / UK GDPR)</h3>
+  <p>If you are in the EEA, UK, or Switzerland, you have rights under applicable data protection laws, including access, correction, deletion, restriction, objection, and data portability. You also have the right to lodge a complaint with your local data protection authority.</p>
+  <h3>United States</h3>
+  <p>US privacy rights vary by state. Depending on your state of residence and applicable law, you may have the right to access, correct, or delete certain personal information and to opt out of certain types of data sharing used for targeted advertising. We do not sell personal information.</p>
+  <h3>Canada</h3>
+  <p>If you are in Canada, you may request access to and correction of your personal information and may have additional rights under applicable Canadian privacy laws.</p>
+  <h3>India</h3>
+  <p>If you are in India, you may have rights under the Digital Personal Data Protection Act, 2023 (DPDPA) and other applicable privacy laws, which may include requesting access to, correction of, or erasure of your personal data, as well as the right to nominate another person to exercise your rights, and the right to grievance redressal. We process your data in accordance with applicable Indian law and will respond to requests within the timeframes prescribed by such law.</p>
+  <h3>KSA and UAE</h3>
+  <p>If you are in the Kingdom of Saudi Arabia or the United Arab Emirates, you may have rights under applicable local privacy laws, which may include requesting access to, correction of, or deletion of your personal information in certain circumstances.</p>
+  <h3>How to Exercise Your Rights</h3>
+  <p>You can submit a request by contacting us at <a href="mailto:info@wazeer.app">info@wazeer.app</a>. We may need to verify your identity before responding (for example, to protect your account and prevent unauthorized access). We will respond within the timeframe required by applicable law.</p>
+
+  <h2>Deletion and Backups</h2>
+  <p>When you request deletion, we will delete or anonymize personal information where required and feasible. We may retain certain information where necessary to comply with legal obligations, resolve disputes, enforce our agreements, or for security and fraud prevention. Limited copies may remain in backup systems for a short period before being automatically overwritten or deleted.</p>
+
+  <h2>Sale of Business</h2>
+  <p>If we are involved in a merger, acquisition, financing, reorganization, bankruptcy, dissolution, or sale/transfer of some or all of our business or assets, personal information may be transferred as part of that transaction. If this happens, we will take reasonable steps to ensure your information remains protected and we will provide notice where required by applicable law.</p>
+
+  <h2>Affiliates</h2>
+  <p>We do not currently share personal information with corporate affiliates. If this changes in the future, we will update this Privacy Policy.</p>
+
+  <h2>Governing Law</h2>
+  <p>This Privacy Policy is intended to comply with applicable data protection laws. Where relevant, it is governed by the laws of Germany, excluding its conflict-of-law rules.</p>
+  <p>Nothing in this Privacy Policy limits any rights you may have under the privacy laws that apply in your place of residence (for example, GDPR/UK GDPR or applicable US/Canadian/Indian/KSA/UAE privacy laws).</p>
+
+  <h2>Acceptance and Updates</h2>
+  <p>By using WAZEER, you acknowledge that you have read and understood this Privacy Policy.</p>
+  <p>We may update this Privacy Policy from time to time. If we make material changes, we will update the &ldquo;Last updated&rdquo; date and may notify you within the App or by other appropriate means. Your continued use of the Service after the update becomes effective means you acknowledge the updated Privacy Policy.</p>
+
+  <h2>Your Consent</h2>
+  <p>This Privacy Policy explains how we collect, use, and share personal information when you use WAZEER.</p>
+  <p>Where we rely on your consent (for example, where required for personalized advertising or certain optional features), we will ask for it at the time it is needed, and you can withdraw your consent at any time through the App (if available) or your device settings. In other cases, we process information because it is necessary to provide the Service, comply with legal obligations, or for other lawful purposes described in this Privacy Policy.</p>
+  <p>By using the Service, you acknowledge that you have read and understood this Privacy Policy.</p>
+
+  <h2>Links to Other Websites</h2>
+  <p>This Privacy Policy applies only to the Service. The Service may contain links to third-party websites or services that are not operated or controlled by us. We are not responsible for the content, policies, or practices of any third-party websites or services.</p>
+  <p>If you follow a link to a third party, their terms and privacy policy will apply to your use of that third-party website or service.</p>
+
+  <h2>Advertising</h2>
+  <p>WAZEER displays ads to free users through Google AdMob, a mobile advertising platform provided by Google. WAZEER Plus is ad-free.</p>
+  <p>To show ads, measure performance, and prevent fraud, Google and its advertising partners may automatically collect and process information such as advertising identifiers (where available), device information, IP address (often used to estimate general location), and ad interaction data (such as impressions and clicks). Depending on your region and settings, ads may be personalized or non-personalized. Where required by law (for example, in the EEA/UK), we request consent before enabling personalized advertising.</p>
+  <p>Third-party ads and links are provided by external parties. We do not control and are not responsible for the content, accuracy, or availability of third-party advertisements or the products or services they offer, and displaying an ad does not mean we endorse the advertiser.</p>
+
+  <h2>Advertising Technologies (Interest-Based Advertising)</h2>
+  <p>We may show ads to free users through Google AdMob and advertising partners. These partners may use technologies such as advertising identifiers, SDKs, and similar tools to:</p>
+  <ul>
+    <li>Deliver ads in the App, including interest-based (personalized) ads where permitted</li>
+    <li>Measure ad performance (e.g., impressions, clicks)</li>
+    <li>Limit how often you see the same ad</li>
+    <li>Detect and prevent fraud and abuse</li>
+  </ul>
+  <p>WAZEER Plus is ad-free, and ads are shown only to free users.</p>
+  <p>Where required by law (for example, in the EEA/UK), we request your consent before using data for personalized advertising.</p>
+
+  <h2>Cookies (Website: Wazeer.app)</h2>
+  <p>Wazeer.app is built using Wix. Wix and its integrated services may use cookies and similar technologies (such as local storage and session storage) to provide and secure the website, remember preferences, and support website functionality. Depending on your settings, cookies may also be used for analytics and marketing features. You can control cookies through your browser settings and, where available, through our cookie/consent banner.</p>
+
+  <h2>Your Choices and Controls</h2>
+  <p>You can manage advertising and tracking preferences using your device settings:</p>
+  <ul>
+    <li><strong>iOS:</strong> You may be asked for permission to allow tracking (AppTrackingTransparency). You can change this in iOS settings.</li>
+    <li><strong>Android:</strong> You can reset or limit your advertising ID in your device settings.</li>
+    <li><strong>EEA/UK consent:</strong> Where applicable, you can change your advertising consent choices in the App (if a consent/settings screen is provided).</li>
+  </ul>
+
+  <h2>Payment Details</h2>
+  <p>If you purchase WAZEER Plus through Apple App Store or Google Play, payments are processed by the app store provider. We do not receive or store your full payment card details. If we offer other payment options (e.g., Razorpay), payments are processed by that provider and we do not store full card numbers.</p>
+
+  <h2>Kids&rsquo; Privacy</h2>
+  <p>WAZEER is not intended for children under 13 and is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
+  <p>If you are a parent or guardian and believe your child has provided us with personal data, please contact us at <a href="mailto:info@wazeer.app">info@wazeer.app</a>. If we learn that we have collected personal data from a child under 13, we will take steps to delete it.</p>
+  <p>If you are under 18 and above 13, please use the Service only with the involvement of a parent or guardian where required by your local laws.</p>
+
+  <h2>Changes to Our Privacy Policy</h2>
+  <p>We may update this Privacy Policy from time to time to reflect changes in our Service, practices, or legal requirements. When we make changes, we will update the &ldquo;Last updated&rdquo; date.</p>
+  <p>If we make material changes, we may notify you through the App, on our website, or by other appropriate means. Your continued use of the Service after the update becomes effective means you acknowledge the updated Privacy Policy.</p>
+  <p>If you do not agree with the updated Privacy Policy, you may stop using the Service and, where available, request deletion of your account.</p>
+
+  <h2>Account Deletion</h2>
+  <p>If you have created a WAZEER account, you can delete it anytime in the App by going to <strong>Profile &rarr; Delete your account</strong>. When you request deletion, we will delete or anonymize your account data, unless we must retain certain information for legal obligations, security, fraud prevention, or dispute resolution.</p>
+
+  <h2>Third-Party Services</h2>
+  <p>The Service may include or use third-party services (for example, app stores, advertising services, analytics/crash reporting tools, authentication providers, AI service providers, payment providers, or links to third-party websites) (&ldquo;Third-Party Services&rdquo;).</p>
+  <p>Third-Party Services operate under their own terms and privacy policies. We do not control how third parties process your information, but we aim to work with reputable providers and limit data sharing to what is necessary for the purposes described in this Privacy Policy.</p>
+
+  <h2>Tracking Technologies</h2>
+  <p><strong>Website (Wazeer.app):</strong> Our website is built using Wix. Wix and its integrated services may use cookies, local storage, session storage, pixels, and similar technologies to provide and secure the website, remember preferences, measure performance, and (where enabled) provide analytics and marketing features. These technologies may collect information such as IP address, device/browser information, pages viewed, and interactions.</p>
+  <p>You can control cookies through your browser settings. Please note that blocking certain cookies or similar technologies may affect website functionality.</p>
+  <p><strong>App:</strong> The WAZEER mobile app does not use &ldquo;browser cookies&rdquo; in the same way websites do. Instead, the app may use SDKs and device identifiers (such as Apple IDFA or Google Advertising ID where available) to operate the service, show ads to free users, measure performance, and prevent fraud (for example, via Google AdMob and its advertising partners). WAZEER Plus is ad-free.</p>
+
+  <h2>Information about General Data Protection Regulation (GDPR)</h2>
+  <p>We may be collecting and using information from you if you are from the European Economic Area (EEA), and in this section of our Privacy Policy we are going to explain exactly how and why this data is collected, and how we maintain this data under protection from being replicated or used in the wrong way.</p>
+  <h3>What is GDPR?</h3>
+  <p>GDPR is an EU-wide privacy and data protection law that regulates how EU residents&rsquo; data is protected by companies and enhances the control EU residents have over their personal data.</p>
+  <p>The GDPR is relevant to any globally operating company and not just EU-based businesses and EU residents. Our users&rsquo; data is important irrespective of where they are located, which is why we have implemented GDPR controls as our baseline standard for all our operations worldwide.</p>
+  <h3>Data Subject Rights (Access, Portability, and Deletion)</h3>
+  <p>If you are located in the EEA/UK/Switzerland, you have rights under GDPR/UK GDPR regarding your personal data. Subject to applicable law, these rights may include:</p>
+  <ul>
+    <li><strong>Access:</strong> request a copy of the personal data we hold about you</li>
+    <li><strong>Correction:</strong> request that inaccurate or incomplete data be corrected</li>
+    <li><strong>Deletion:</strong> request deletion of your personal data in certain circumstances</li>
+    <li><strong>Restriction / Objection:</strong> request restriction of processing or object to certain processing</li>
+    <li><strong>Portability:</strong> request your data in a structured, commonly used, machine-readable format (where applicable)</li>
+  </ul>
+
+  <h2>California Residents (CCPA/CPRA)</h2>
+  <p>California law (including the California Consumer Privacy Act as amended by the CPRA) requires certain disclosures and provides California residents with specific privacy rights. Information about the categories of personal information we collect, the sources of that information, how we use it, and the categories of third parties we share it with is described elsewhere in this Privacy Policy.</p>
+  <p>Subject to applicable law, California residents may have the right to:</p>
+  <ul>
+    <li><strong>Right to Know / Access:</strong> request information about the categories and specific pieces of personal information we collected about you, the sources, our purposes for collecting/using it, and the categories of third parties we disclose it to.</li>
+    <li><strong>Right to Delete:</strong> request deletion of certain personal information we collected from you (subject to legal exceptions).</li>
+    <li><strong>Right to Correct:</strong> request correction of inaccurate personal information.</li>
+    <li><strong>Right to Non-Discrimination:</strong> you will not be discriminated against for exercising your privacy rights.</li>
+    <li><strong>Right to Opt Out of &ldquo;Sale&rdquo; or &ldquo;Sharing&rdquo;:</strong> opt out of the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of personal information as those terms are defined under California law (which may include certain data sharing for cross-context behavioral advertising).</li>
+  </ul>
+  <p>We do not sell personal information in exchange for money. We may share certain identifiers and device information with advertising partners to deliver ads to free users and measure ad performance. You can manage advertising and tracking preferences using your device settings and, where available, in the App.</p>
+  <p>To exercise your California privacy rights, contact us at <a href="mailto:info@wazeer.app">info@wazeer.app</a>. We will respond within the timeframe required by applicable law and may need to verify your request.</p>
+
+  <h2>California Online Privacy Protection Act (CalOPPA)</h2>
+  <p>CalOPPA requires certain disclosures in an online privacy policy. In accordance with CalOPPA:</p>
+  <ul>
+    <li>We post this Privacy Policy and will update it if our privacy practices change.</li>
+    <li>The &ldquo;Last updated&rdquo; date at the top of this Privacy Policy indicates when it was last revised.</li>
+    <li>You can contact us using the details in the &ldquo;Contact Us&rdquo; section below with questions about our privacy practices.</li>
+  </ul>
+
+  <h2>Do Not Track</h2>
+  <p>Some browsers offer a &ldquo;Do Not Track&rdquo; (&ldquo;DNT&rdquo;) signal. At this time, there is no industry-wide standard for recognizing or responding to DNT signals, and we do not respond to them. You can manage certain tracking and advertising preferences through your device settings and, where available, within the App.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy or our privacy practices, contact us:</p>
+  <ul>
+    <li><strong>Via Email:</strong> <a href="mailto:info@wazeer.app">info@wazeer.app</a></li>
+  </ul>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">WAZEER</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/wazeer.app/" target="_blank" rel="noopener">Instagram</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2026 WAZEER &mdash; A <a href="http://www.cybercradle.de" target="_blank" rel="noopener">CyberCradle</a> Product
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+</body>
+</html>

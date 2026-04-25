@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — WAZEER</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #1B7A4E;
+    --emerald-deep: #0D5C38;
+    --emerald-light: #2A9D6F;
+    --gold: #D4A843;
+    --gold-light: #E8C97A;
+    --cream: #FBF7F0;
+    --cream-dark: #F0EAE0;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --ink-muted: #6B6B6B;
+    --white: #FFFFFF;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0.8rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--emerald-deep);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .navbar.scrolled {
+    background: rgba(13, 92, 56, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    padding: 0.6rem 3rem;
+  }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--white);
+    color: var(--ink);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .nav-cta:hover {
+    background: var(--cream);
+    transform: translateY(-1px);
+  }
+  .nav-ig {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+  }
+  .nav-ig:hover {
+    background: var(--gold);
+    color: var(--ink) !important;
+    transform: translateY(-2px);
+  }
+
+  /* ============ PAGE HEADER ============ */
+  .page-header {
+    padding: 10rem 3rem 4rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(27,122,78,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(212,168,67,0.05) 0%, transparent 60%),
+      var(--cream);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .breadcrumb {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  .breadcrumb a {
+    color: var(--emerald);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.15;
+  }
+  .page-header h1 .accent { color: var(--emerald); }
+  .page-meta {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  /* ============ ARTICLE ============ */
+  .legal {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .legal p, .legal li {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .legal h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--emerald);
+    margin: 3rem 0 1rem;
+    padding-top: 1rem;
+    line-height: 1.25;
+    border-top: 1px solid rgba(27,122,78,0.12);
+  }
+  .legal h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .legal h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 1.8rem 0 0.7rem;
+  }
+  .legal ul, .legal ol {
+    margin: 0.5rem 0 1.2rem 1.5rem;
+  }
+  .legal li { margin-bottom: 0.5rem; }
+  .legal strong { color: var(--ink); font-weight: 600; }
+  .legal a {
+    color: var(--emerald);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(27,122,78,0.3);
+    transition: border-color 0.2s;
+  }
+  .legal a:hover { border-bottom-color: var(--emerald); }
+  .legal .lede {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    padding: 1.2rem 1.4rem;
+    background: rgba(212,168,67,0.06);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 2rem;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--ink);
+    padding: 3rem;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-copy a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+  }
+  .footer-copy a:hover { color: var(--gold); }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 900px) {
+    .navbar { padding: 1rem 1.5rem; }
+    .navbar.scrolled { padding: 0.7rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-header { padding: 8rem 1.5rem 3rem; }
+    .legal { padding: 3rem 1.5rem 4rem; }
+    .legal h2 { font-size: 1.45rem; margin-top: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="WAZEER - Logo - Transparent (3).png" alt="WAZEER" style="height: 70px; width: auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#jibril">JIBRIL</a></li>
+    <li><a href="index.html#deenscrolling">Deenscrolling</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="https://www.instagram.com/wazeer.app/" target="_blank" rel="noopener" class="nav-ig" aria-label="Wazeer on Instagram" style="color: rgba(255,255,255,0.9);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a></li>
+    <li><a href="index.html#download" class="nav-cta">Download</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="breadcrumb"><a href="index.html">← Back to home</a></div>
+  <h1>Terms &amp; <span class="accent">Conditions</span></h1>
+  <div class="page-meta">Updated February 26, 2026</div>
+</header>
+
+<!-- LEGAL CONTENT -->
+<article class="legal">
+
+  <h2>General Terms</h2>
+  <p class="lede">By downloading, accessing, or using the WAZEER application (&ldquo;App&rdquo;) and any related services (together, the &ldquo;Service&rdquo;), you agree to these Terms &amp; Conditions (&ldquo;Terms&rdquo;). These Terms apply to your use of the App, our website, and any related communications (such as emails) between you and us.</p>
+  <p>These Terms are a legal agreement between you and Ammar Nemat, operating as CyberCradle (Einzelunternehmen / sole proprietorship), with its principal place of business at Goltzstr. 63, 13587 Berlin, Germany (&ldquo;WAZEER&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), the provider of the Service. CyberCradle is the business entity behind WAZEER, and the WAZEER App is its primary product. The business website is located at <a href="http://www.cybercradle.de" target="_blank" rel="noopener">cybercradle.de</a>. If you do not agree to these Terms, please do not use the Service.</p>
+  <p>We may update these Terms from time to time. If we make material changes, we will update the &ldquo;Last updated&rdquo; date and may notify you within the App or by email. Your continued use of the Service after changes means you accept the updated Terms.</p>
+  <p>If you violate these Terms or misuse the Service, we may suspend or terminate your access to the Service, or restrict certain features, where reasonably necessary to protect the Service, users, or our legal obligations. Where practical, we may provide notice, but we are not required to do so in urgent cases (for example, security risks or abuse).</p>
+
+  <h2>License</h2>
+  <p>We grant you a revocable, non-exclusive, non-transferable, limited license to download, install, and use the App for your personal, lawful use, strictly in accordance with these Terms and the applicable app store rules (Apple App Store / Google Play).</p>
+
+  <h2>Definitions and Key Terms</h2>
+  <p>To help explain things clearly, the following terms have these meanings when used in these Terms:</p>
+  <ul>
+    <li><strong>App:</strong> The WAZEER mobile application and any updates provided through Apple App Store or Google Play.</li>
+    <li><strong>Company / We / Us / Our / WAZEER:</strong> Ammar Nemat, operating as CyberCradle (Einzelunternehmen / sole proprietorship), Goltzstr. 63, 13587 Berlin, Germany. CyberCradle is the business entity; WAZEER is its primary product.</li>
+    <li><strong>CyberCradle:</strong> The sole proprietorship (Einzelunternehmen) operated by Ammar Nemat under which the WAZEER App and related services are developed and provided. Business website: cybercradle.de.</li>
+    <li><strong>Country:</strong> Germany.</li>
+    <li><strong>Device:</strong> Any internet-connected device such as a phone, tablet, or computer that can access the Service.</li>
+    <li><strong>Service:</strong> The App and any related services, features, and content provided through WAZEER (and our website, if any).</li>
+    <li><strong>Third-Party Services:</strong> Services provided by third parties that may be linked to or used within the Service (for example, app stores, analytics, crash reporting, advertising services, payment providers, AI service providers, or other integrations).</li>
+    <li><strong>AI-Generated Content:</strong> Content produced by artificial intelligence models provided by third-party API services (such as OpenAI) in response to user prompts within the App. AI-Generated Content is provided for informational and educational purposes only.</li>
+    <li><strong>WAZEER Plus:</strong> The premium subscription tier of the Service that removes advertisements and unlocks all features of the App.</li>
+    <li><strong>You / User:</strong> The individual who accesses or uses the Service.</li>
+  </ul>
+  <p><strong>Note on Cookies (website only):</strong> If we operate a website, it may use cookies or similar technologies. Our <a href="privacy-policy.html">Privacy Policy</a> explains how we use them.</p>
+
+  <h2>Free and Premium Tiers</h2>
+  <p>WAZEER is free to download and use. We believe Islamic knowledge and guidance should be accessible to everyone and should not be hidden behind paywalls. The core features of the App are available to all users at no cost.</p>
+  <h3>Free Tier (WAZEER)</h3>
+  <p>The free version of the App provides access to core features with advertisements displayed via Google AdMob. Certain additional features may be limited or restricted in the free tier.</p>
+  <h3>Premium Tier (WAZEER Plus)</h3>
+  <p>WAZEER Plus is an optional premium subscription that removes all advertisements and unlocks all features of the App. WAZEER Plus is available on a monthly or annual subscription basis. Current pricing is displayed in the App and on the applicable app store listing before purchase.</p>
+
+  <h2>Subscriptions (WAZEER Plus)</h2>
+  <h3>Billing and Renewal</h3>
+  <p>WAZEER Plus subscriptions are billed on a recurring basis (monthly or annual, depending on the plan you select) through the Apple App Store or Google Play. Your subscription will automatically renew at the end of each billing period unless you cancel before the renewal date. The renewal charge will be applied to your payment method on file with the app store within 24 hours prior to the end of the current billing period.</p>
+  <p>Subscription prices may change from time to time. If a price change affects your active subscription, you will be notified in advance in accordance with the app store&rsquo;s policies and applicable law. Continued use after a price change takes effect constitutes acceptance of the new price.</p>
+  <h3>Cancellation</h3>
+  <p>You may cancel your WAZEER Plus subscription at any time through your Apple App Store or Google Play account settings. Upon cancellation:</p>
+  <ul>
+    <li>You will retain access to WAZEER Plus features until the end of your current billing period (monthly or annual).</li>
+    <li>You will not be charged for the next billing period.</li>
+    <li>After the current period expires, your account will revert to the free tier with advertisements and limited features.</li>
+    <li>Cancellation does not result in a refund for the current billing period.</li>
+  </ul>
+  <p>Access, billing, and cancellation rules are ultimately governed by the policies of the applicable app store (Apple App Store or Google Play).</p>
+  <h3>Refunds</h3>
+  <p><strong>1) Purchases made through Apple App Store or Google Play:</strong> If you subscribed through Apple or Google, billing and refunds are handled by the respective store, and refund eligibility is determined by their policies. Please request refunds directly through Apple or Google.</p>
+  <p><strong>2) Purchases made directly from us (if available):</strong> If we offer direct purchases (for example, via our website), you may contact us at <a href="mailto:info@wazeer.app">info@wazeer.app</a>. We may review refund requests on a case-by-case basis, especially where there is a verified technical issue that prevents access to paid features.</p>
+  <p>Nothing in this section limits any rights you may have under applicable consumer protection laws (including, where applicable, the EU Consumer Rights Directive, the UK Consumer Rights Act 2015, Indian Consumer Protection Act 2019, or similar laws in your jurisdiction).</p>
+  <h3>Contact</h3>
+  <p>For billing help or issues accessing your subscription, contact: <a href="mailto:info@wazeer.app">info@wazeer.app</a></p>
+
+  <h2>AI-Generated Content</h2>
+  <p>The App includes an AI-powered feature that provides Islamic guidance responses using a third-party AI service provider (currently OpenAI) through their application programming interface (API). By using this feature, you acknowledge and agree to the following:</p>
+  <h3>Nature of AI Content</h3>
+  <ul>
+    <li>AI-generated responses are provided for informational and educational purposes only.</li>
+    <li>AI-generated content does not constitute authoritative religious rulings (fatwas), legal advice, medical advice, financial advice, or professional advice of any kind.</li>
+    <li>AI-generated content should not be treated as a substitute for consultation with qualified Islamic scholars, legal professionals, medical professionals, or other qualified experts.</li>
+    <li>We strongly encourage users to verify any AI-generated guidance with qualified scholars or trusted Islamic sources before relying on it.</li>
+  </ul>
+  <h3>Accuracy and Reliability</h3>
+  <ul>
+    <li>AI-generated content may contain inaccuracies, errors, outdated information, or incomplete information.</li>
+    <li>We do not guarantee the accuracy, completeness, correctness, reliability, or suitability of any AI-generated content.</li>
+    <li>We make no representations or warranties, express or implied, regarding the quality or accuracy of AI-generated content.</li>
+  </ul>
+  <h3>Your Responsibility</h3>
+  <ul>
+    <li>You are solely responsible for evaluating and verifying any AI-generated content before relying on it.</li>
+    <li>You are solely responsible for any decisions made or actions taken based on AI-generated content.</li>
+    <li>WAZEER shall not be liable for any loss, damage, or harm arising from your use of or reliance on AI-generated content.</li>
+  </ul>
+  <h3>Data and Privacy</h3>
+  <p>When you use the AI guidance feature, only the text of your message/prompt is sent to the third-party AI provider. We do not send any personal information (such as your name, email address, account identifiers, device information, or IP address) to the AI provider. Conversation histories are not stored by us and are not sent as context to the AI provider. For more details, please see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  <h3>Changes to the AI Feature</h3>
+  <p>We may change, update, suspend, or discontinue the AI feature (or the underlying AI provider) at any time without prior notice. We are not obligated to maintain, update, or continue providing the AI feature.</p>
+
+  <h2>Restrictions</h2>
+  <p>You agree that you will not (and you will not allow others to):</p>
+  <ul>
+    <li><strong>Sell or redistribute:</strong> License, sell, rent, lease, assign, distribute, transmit, host, outsource, or otherwise commercially exploit the App or make it available to any third party, except as expressly allowed under these Terms.</li>
+    <li><strong>Reverse engineer:</strong> Copy, modify, create derivative works of, disassemble, decrypt, decompile, reverse compile, or reverse engineer any part of the App or Service, except to the extent such restriction is not permitted by applicable law.</li>
+    <li><strong>Remove notices:</strong> Remove, alter, or obscure any proprietary notices (including copyright, trademark, or other legal notices) displayed in or on the App or Service.</li>
+    <li><strong>Misuse AI features:</strong> Use the AI guidance feature to generate content that is harmful, misleading, defamatory, or that violates any applicable law or regulation; attempt to extract, reverse engineer, or replicate the underlying AI model or its training data; use automated means to access the AI feature at scale or in a manner that exceeds normal individual use.</li>
+    <li><strong>Circumvent restrictions:</strong> Attempt to bypass, disable, or circumvent any technical measures, access controls, or usage limitations in the App, including those related to the free and premium tiers.</li>
+  </ul>
+
+  <h2>Your Suggestions</h2>
+  <p>Any feedback, comments, ideas, improvements or suggestions (collectively, &ldquo;Suggestions&rdquo;) provided by you to WAZEER with respect to the App shall remain the sole and exclusive property of WAZEER.</p>
+  <p>WAZEER shall be free to use, copy, modify, publish, or redistribute the Suggestions for any purpose and in any way without any credit or any compensation to you.</p>
+
+  <h2>Your Consent</h2>
+  <p>By using our App, registering/creating an account, or purchasing a subscription, you hereby consent to our Terms &amp; Conditions and our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+  <h2>Account Deletion</h2>
+  <p>If you have created a WAZEER account, you can delete it anytime in the App by going to <strong>Profile &rarr; Delete your account</strong>. When you request deletion, we will delete or anonymize your account data, unless we must retain certain information for legal obligations, security, fraud prevention, or dispute resolution.</p>
+
+  <h2>Links to Other Websites</h2>
+  <p>These Terms apply only to the Service. The Service may contain links to third-party websites or services that are not operated or controlled by us. We do not control and are not responsible for the content, policies, or practices of any third-party websites or services.</p>
+  <p>If you access a third-party link, you do so at your own risk, and your use of that third-party website or service will be governed by their own terms and privacy policies.</p>
+
+  <h2>Waitlist on Wazeer.app</h2>
+  <p>If you join the waitlist on our website, you agree that we may email you about:</p>
+  <ul>
+    <li>Beta access and onboarding</li>
+    <li>Launch notifications</li>
+    <li>Relevant product updates</li>
+  </ul>
+  <p>You can unsubscribe anytime by contacting <a href="mailto:info@wazeer.app">info@wazeer.app</a> or by clicking the unsubscribe link in any email.</p>
+
+  <h2>Cookies</h2>
+  <p><strong>Website:</strong> Wazeer.app is built using WordPress. WordPress and its integrated services may use cookies and similar technologies (such as local storage and session storage) to provide and secure the website, remember preferences, and support website functionality. Depending on your settings, cookies may also be used for analytics and marketing features. You can control cookies through your browser settings and, where available, through our cookie/consent banner.</p>
+  <p><strong>App:</strong> Mobile apps generally do not use &ldquo;browser cookies&rdquo; in the same way websites do. Instead, the App may use device identifiers or third-party software development kits (SDKs) for functions such as login, analytics, crash reporting, and performance monitoring (where enabled). Details about what we use, why we use it, and your choices (including consent where required) are explained in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+  <h2>Changes to Our Terms &amp; Conditions</h2>
+  <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days&rsquo; notice prior to any new terms taking effect by updating the &ldquo;Last updated&rdquo; date and notifying you within the App, on our website, or by email. What constitutes a material change will be determined at our sole discretion.</p>
+  <p>Your continued use of the Service after the updated Terms become effective means you accept the changes. If you do not agree to the updated Terms, you must stop using the Service and, where available, you may request deletion of your account.</p>
+
+  <h2>Changes to the App and Service</h2>
+  <p>We may modify, update, suspend, or discontinue the Service (or any part of it) at any time. We will try to provide reasonable notice when possible, especially if a change materially affects paid features or access, but we may make changes without notice where required for security, legal compliance, or technical reasons.</p>
+  <p>Where a change to the Service materially reduces the functionality of WAZEER Plus during an active subscription period, we will use reasonable efforts to notify you in advance. Nothing in this section limits any rights you may have under applicable consumer protection laws.</p>
+
+  <h2>Updates to the App</h2>
+  <p>From time to time, we may provide updates to the App, including patches, bug fixes, security updates, upgrades, and other modifications (&ldquo;Updates&rdquo;).</p>
+  <p>Updates may change, add, or remove certain features or functionalities. We do not guarantee that any specific feature will always be available, and we are not obligated to provide Updates or continue any particular feature.</p>
+  <p>Any Updates are considered part of the App and are subject to these Terms.</p>
+
+  <h2>Third-Party Services</h2>
+  <p>The Service may display, include, or make available third-party content (including data, information, applications and other products or services) or provide links to third-party websites or services (&ldquo;Third-Party Services&rdquo;). These include, without limitation:</p>
+  <ul>
+    <li>App stores (Apple App Store, Google Play)</li>
+    <li>Advertising services (Google AdMob)</li>
+    <li>Analytics and crash reporting tools</li>
+    <li>Authentication providers (Apple Sign-In, Google Sign-In)</li>
+    <li>AI service providers (OpenAI)</li>
+    <li>Payment providers</li>
+    <li>Cloud infrastructure and database services (Firebase)</li>
+  </ul>
+  <p>You acknowledge and agree that we shall not be responsible for any Third-Party Services, including their accuracy, completeness, timeliness, validity, copyright compliance, legality, decency, quality, or any other aspect thereof. We do not assume and shall not have any liability or responsibility to you or any other person or entity for any Third-Party Services.</p>
+  <p>Third-Party Services and links thereto are provided solely as a convenience to you, and you access and use them entirely at your own risk and subject to such third parties&rsquo; terms and conditions.</p>
+  <p>Nothing in this section limits any rights you may have under applicable law.</p>
+
+  <h2>Account Access</h2>
+  <p>If your access is restricted, suspended, or terminated (for example, due to misuse or security issues), you may lose access to parts of the Service and any content or information associated with your account, to the extent permitted by law.</p>
+
+  <h2>Term and Termination</h2>
+  <p>These Terms remain in effect until terminated by you or us.</p>
+  <p>You may stop using the Service at any time. You may also terminate these Terms by deleting the App from your device(s).</p>
+  <p>We may restrict, suspend, or terminate your access to the Service if we reasonably believe you have violated these Terms, misused the Service, or if we must do so for security, legal, or operational reasons. Where practical, we may provide notice, but we may act without notice in urgent situations (for example, fraud, abuse, or security risks).</p>
+  <p>After termination, you must stop using the Service. Certain sections of these Terms that by their nature should continue will survive termination (for example, intellectual property, AI content disclaimers, indemnification, disclaimers, limitation of liability, and dispute-related terms).</p>
+
+  <h2>Copyright Infringement Notice</h2>
+  <p>If you believe that any content available through the Service infringes your copyright, please contact us at <a href="mailto:info@wazeer.app">info@wazeer.app</a> with the following information:</p>
+  <ol>
+    <li>Your physical or electronic signature (or the signature of a person authorized to act on behalf of the copyright owner).</li>
+    <li>Identification of the copyrighted work you claim has been infringed.</li>
+    <li>Identification of the material you claim is infringing (with enough detail for us to locate it).</li>
+    <li>Your contact information (name, address, telephone number, and email address).</li>
+    <li>A statement that you have a good-faith belief the disputed use is not authorized by the copyright owner, its agent, or the law.</li>
+    <li>A statement that the information in your notice is accurate and that you are authorized to act on behalf of the copyright owner.</li>
+  </ol>
+  <p>We will review and respond as appropriate.</p>
+
+  <h2>Indemnification</h2>
+  <p>You agree to indemnify and hold WAZEER and its owner/operator, and (where applicable) our contractors and service providers, harmless from any claim or demand, including reasonable attorneys&rsquo; fees, due to or arising out of your: (a) use of the App; (b) violation of this Agreement or any law or regulation; (c) violation of any right of a third party; or (d) misuse of the AI guidance feature, including reliance on AI-generated content or distribution of AI-generated content in violation of these Terms.</p>
+
+  <h2>No Warranties</h2>
+  <p>The Service is provided to you &ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo; and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, WAZEER, on its own behalf and on behalf of its affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the App, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice.</p>
+  <p>Without limitation to the foregoing, WAZEER provides no warranty or undertaking, and makes no representation of any kind that the App will meet your requirements, achieve any intended results, be compatible or work with any other software, apps, systems or services, operate without interruption, meet any performance or reliability standards, or be error free or that any errors or defects can or will be corrected.</p>
+  <p><strong>AI-Generated Content Disclaimer:</strong> Without limiting the above, WAZEER makes no warranty or representation regarding the accuracy, reliability, completeness, or suitability of any AI-generated content. AI-generated responses are provided for informational and educational purposes only and do not constitute authoritative religious rulings (fatwas), legal, medical, financial, or other professional advice.</p>
+  <p>Some jurisdictions do not allow the exclusion of or limitations on implied warranties or the limitations on the applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to you.</p>
+
+  <h2>Limitation of Liability</h2>
+  <p>Notwithstanding any damages that you might incur, the entire liability of WAZEER and any of its suppliers under any provision of this Agreement and your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by you for the WAZEER Plus subscription in the twelve (12) months preceding the event giving rise to the claim, or EUR 50, whichever is greater.</p>
+  <p>To the maximum extent permitted by applicable law, in no event shall WAZEER or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, for loss of data or other information, for business interruption, for personal injury, for loss of privacy arising out of or in any way related to the use of or inability to use the App, third-party software and/or third-party hardware used with the App, AI-generated content provided through the App, or otherwise in connection with any provision of this Agreement), even if WAZEER or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</p>
+  <p>Some states/jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so the above limitation or exclusion may not apply to you. In particular, nothing in these Terms limits or excludes liability that cannot be limited or excluded under applicable law (for example, liability for death or personal injury caused by negligence, or for fraud).</p>
+
+  <h2>Severability</h2>
+  <p>If any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law, and the remaining provisions will continue in full force and effect.</p>
+
+  <h2>Waiver</h2>
+  <p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Agreement shall not affect a party&rsquo;s ability to exercise such right or require such performance at any time thereafter, nor shall the waiver of a breach constitute waiver of any subsequent breach.</p>
+  <p>No failure to exercise, and no delay in exercising, on the part of either party, any right or any power under this Agreement shall operate as a waiver of that right or power. Nor shall any single or partial exercise of any right or power under this Agreement preclude further exercise of that or any other right granted herein.</p>
+
+  <h2>Entire Agreement</h2>
+  <p>This Agreement, together with the <a href="privacy-policy.html">Privacy Policy</a> and any other legal notices published by WAZEER on the Service, constitutes the entire agreement between you and WAZEER concerning the Service and supersedes all prior and contemporaneous written or oral agreements between you and us.</p>
+  <p>You may be subject to additional terms and conditions that apply when you use or purchase other WAZEER services, which WAZEER will provide to you at the time of such use or purchase.</p>
+  <p>No waiver of any term of this Agreement shall be deemed a further or continuing waiver of such term or any other term, and WAZEER&rsquo;s failure to assert any right or provision under this Agreement shall not constitute a waiver of such right or provision.</p>
+  <p>YOU AND WAZEER AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE SERVICE MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED. This limitation does not apply where prohibited by applicable law.</p>
+
+  <h2>Intellectual Property</h2>
+  <p>The App and its entire contents, features and functionality (including but not limited to all information, software, text, displays, images, video and audio, and the design, selection and arrangement thereof), are owned by WAZEER, its licensors or other providers of such material and are protected by Germany and international copyright, trademark, patent, trade secret and other intellectual property or proprietary rights laws.</p>
+  <p>The material may not be copied, modified, reproduced, downloaded or distributed in any way, in whole or in part, without the express prior written permission of WAZEER, unless and except as is expressly provided in these Terms &amp; Conditions. Any unauthorized use of the material is prohibited.</p>
+  <p><strong>AI-Generated Content:</strong> AI-generated responses provided through the App are generated by third-party AI models and may be subject to the terms and intellectual property policies of the underlying AI provider. WAZEER does not claim ownership of the AI-generated responses delivered to you. You may use AI-generated content for your own personal, non-commercial purposes, but you may not commercially redistribute AI-generated content obtained through the App.</p>
+
+  <h2>Governing Law</h2>
+  <p>These Terms are governed by the laws of the Federal Republic of Germany, excluding its conflict-of-law rules.</p>
+
+  <h2>Mandatory Consumer Rights</h2>
+  <p>If you are a consumer, nothing in these Terms limits any mandatory consumer protection rights you may have under the laws of your country of residence, including but not limited to the EU Consumer Rights Directive, UK Consumer Rights Act 2015, US state consumer protection laws, Indian Consumer Protection Act 2019, or similar applicable laws.</p>
+
+  <h2>Jurisdiction</h2>
+  <p>Where mandatory law allows you to choose, the courts of Berlin, Germany will have jurisdiction. If you are a consumer and mandatory law gives you the right to bring claims in the courts of your place of residence, you may do so.</p>
+
+  <h2>Submissions and Privacy</h2>
+  <p>In the event that you submit or post any ideas, creative suggestions, designs, photographs, information, advertisements, data or proposals, including ideas for new or improved products, services, features, technologies or promotions, you expressly agree that such submissions will automatically be treated as non-confidential and non-proprietary and will become the sole property of WAZEER without any compensation or credit to you whatsoever.</p>
+  <p>WAZEER and its affiliates shall have no obligations with respect to such submissions or posts and may use the ideas contained in such submissions or posts for any purposes in any medium in perpetuity, including, but not limited to, developing, manufacturing, and marketing products and services using such ideas.</p>
+
+  <h2>Promotions</h2>
+  <p>WAZEER may, from time to time, include contests, promotions, sweepstakes, or other activities that require you to submit material or information concerning yourself. Please note that all Promotions may be governed by separate rules that may contain certain eligibility requirements, such as restrictions as to age and geographic location. You are responsible for reading all Promotions rules to determine whether or not you are eligible to participate. If you enter any Promotion, you agree to abide by and to comply with all Promotions Rules.</p>
+  <p>Additional terms and conditions may apply to purchases of goods or services on or through the Service, which terms and conditions are made a part of this Agreement by this reference.</p>
+
+  <h2>Miscellaneous</h2>
+  <p>If for any reason a court of competent jurisdiction finds any provision or portion of these Terms &amp; Conditions to be unenforceable, the remainder of these Terms &amp; Conditions will continue in full force and effect. Any waiver of any provision of these Terms &amp; Conditions will be effective only if in writing and signed by an authorized representative of WAZEER.</p>
+  <p>WAZEER will be entitled to injunctive or other equitable relief (without the obligations of posting any bond or surety) in the event of any breach or anticipatory breach by you. WAZEER operates and controls the WAZEER Service from its offices in Germany. The Service is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation.</p>
+  <p>Accordingly, those persons who choose to access the WAZEER Service from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</p>
+
+  <h2>Disclaimer</h2>
+  <p>WAZEER is not responsible for any content, code, or any other imprecision. WAZEER does not provide warranties or guarantees.</p>
+  <p>In no event shall WAZEER be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service, including AI-generated content. The Company reserves the right to make additions, deletions, or modifications to the contents on the Service at any time without prior notice.</p>
+  <p>The WAZEER Service and its contents are provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without any warranty or representations of any kind, whether express or implied. WAZEER is a distributor and not a publisher of the content supplied by third parties (including AI-generated content from third-party AI providers); as such, WAZEER exercises no editorial control over such content and makes no warranty or representation as to the accuracy, reliability, or currency of any information, content, service, or merchandise provided through or accessible via the WAZEER Service.</p>
+  <p>Without limiting the foregoing, WAZEER specifically disclaims all warranties and representations in any content transmitted on or in connection with the WAZEER Service or on sites that may appear as links on the WAZEER Service, or in the products provided as a part of, or otherwise in connection with, the WAZEER Service, including without limitation any warranties of merchantability, fitness for a particular purpose, or non-infringement of third party rights. No oral advice or written information given by WAZEER or any of its affiliates, employees, officers, directors, agents, or the like will create a warranty.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have any questions about these Terms &amp; Conditions, please contact us:</p>
+  <ul>
+    <li><strong>Via Email:</strong> <a href="mailto:info@wazeer.app">info@wazeer.app</a></li>
+    <li><strong>Business website:</strong> <a href="http://www.cybercradle.de" target="_blank" rel="noopener">cybercradle.de</a></li>
+  </ul>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">WAZEER</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/wazeer.app/" target="_blank" rel="noopener">Instagram</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2026 WAZEER &mdash; A <a href="http://www.cybercradle.de" target="_blank" rel="noopener">CyberCradle</a> Product
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+</body>
+</html>
