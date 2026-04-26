@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Account — WAZEER</title>
+<meta name="description" content="How to delete your WAZEER account and request deletion of your associated personal data.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #1B7A4E;
+    --emerald-deep: #0D5C38;
+    --emerald-light: #2A9D6F;
+    --gold: #D4A843;
+    --gold-light: #E8C97A;
+    --cream: #FBF7F0;
+    --cream-dark: #F0EAE0;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --ink-muted: #6B6B6B;
+    --white: #FFFFFF;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  /* ============ NAVBAR ============ */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0.8rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--emerald-deep);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .navbar.scrolled {
+    background: rgba(13, 92, 56, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    padding: 0.6rem 3rem;
+  }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--white);
+    color: var(--ink);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .nav-cta:hover {
+    background: var(--cream);
+    transform: translateY(-1px);
+  }
+  .nav-ig {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+  }
+  .nav-ig:hover {
+    background: var(--gold);
+    color: var(--ink) !important;
+    transform: translateY(-2px);
+  }
+
+  /* ============ PAGE HEADER ============ */
+  .page-header {
+    padding: 10rem 3rem 4rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(27,122,78,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(212,168,67,0.05) 0%, transparent 60%),
+      var(--cream);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .breadcrumb {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  .breadcrumb a {
+    color: var(--emerald);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.15;
+  }
+  .page-header h1 .accent { color: var(--emerald); }
+  .page-meta {
+    font-size: 0.92rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  /* ============ ARTICLE ============ */
+  .legal {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .legal p, .legal li {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .legal h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--emerald);
+    margin: 3rem 0 1rem;
+    padding-top: 1rem;
+    line-height: 1.25;
+    border-top: 1px solid rgba(27,122,78,0.12);
+  }
+  .legal h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .legal h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 1.8rem 0 0.7rem;
+  }
+  .legal ul, .legal ol {
+    margin: 0.5rem 0 1.2rem 1.5rem;
+  }
+  .legal li { margin-bottom: 0.5rem; }
+  .legal strong { color: var(--ink); font-weight: 600; }
+  .legal a {
+    color: var(--emerald);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(27,122,78,0.3);
+    transition: border-color 0.2s;
+  }
+  .legal a:hover { border-bottom-color: var(--emerald); }
+  .legal .lede {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    padding: 1.2rem 1.4rem;
+    background: rgba(212,168,67,0.06);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 2rem;
+  }
+  .legal ol.steps {
+    counter-reset: step;
+    list-style: none;
+    margin-left: 0;
+  }
+  .legal ol.steps li {
+    counter-increment: step;
+    padding: 0.9rem 1rem 0.9rem 3.4rem;
+    margin-bottom: 0.7rem;
+    background: var(--white);
+    border: 1px solid rgba(27,122,78,0.12);
+    border-radius: 10px;
+    position: relative;
+  }
+  .legal ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0.9rem;
+    top: 0.9rem;
+    width: 1.9rem;
+    height: 1.9rem;
+    background: var(--emerald);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .contact-box {
+    background: var(--white);
+    border: 1px solid rgba(27,122,78,0.15);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    margin: 1.5rem 0;
+  }
+  .contact-box a { font-weight: 600; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--ink);
+    padding: 3rem;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-copy a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+  }
+  .footer-copy a:hover { color: var(--gold); }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 900px) {
+    .navbar { padding: 1rem 1.5rem; }
+    .navbar.scrolled { padding: 0.7rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-header { padding: 8rem 1.5rem 3rem; }
+    .legal { padding: 3rem 1.5rem 4rem; }
+    .legal h2 { font-size: 1.45rem; margin-top: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="../index.html" class="nav-logo">
+    <img src="../WAZEER - Logo - Transparent (3).png" alt="WAZEER" style="height: 70px; width: auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#how">How It Works</a></li>
+    <li><a href="../index.html#jibril">JIBRIL</a></li>
+    <li><a href="../index.html#deenscrolling">Deenscrolling</a></li>
+    <li><a href="../index.html#faq">FAQ</a></li>
+    <li><a href="https://www.instagram.com/wazeer.app/" target="_blank" rel="noopener" class="nav-ig" aria-label="Wazeer on Instagram" style="color: rgba(255,255,255,0.9);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a></li>
+    <li><a href="../index.html#download" class="nav-cta">Download</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="breadcrumb"><a href="../index.html">← Back to home</a></div>
+  <h1>Delete Your <span class="accent">Account</span></h1>
+  <div class="page-meta">Updated April 27, 2026</div>
+</header>
+
+<!-- CONTENT -->
+<article class="legal">
+
+  <p class="lede">You can permanently delete your WAZEER account and the personal data associated with it at any time. This page explains how to do it from inside the app, or by contacting us directly.</p>
+
+  <h2>Option 1: Delete From Inside the App (Recommended)</h2>
+  <p>The fastest way to delete your account is directly from the WAZEER app:</p>
+  <ol class="steps">
+    <li>Open the <strong>WAZEER</strong> app on your phone.</li>
+    <li>Sign in to the account you want to delete.</li>
+    <li>Tap the <strong>Profile</strong> tab at the bottom right.</li>
+    <li>Scroll down and tap <strong>Delete your account</strong>.</li>
+    <li>Confirm the deletion when prompted.</li>
+  </ol>
+  <p>Once you confirm, your account is queued for deletion and you will be signed out immediately.</p>
+
+  <h2>Option 2: Request Deletion by Email</h2>
+  <p>If you no longer have access to the app, or you prefer to request deletion in writing, send us an email:</p>
+  <div class="contact-box">
+    <p style="margin-bottom: 0.4rem;"><strong>Email:</strong> <a href="mailto:info@wazeer.app?subject=Account%20Deletion%20Request">info@wazeer.app</a></p>
+    <p style="margin-bottom: 0;"><strong>Subject:</strong> Account Deletion Request</p>
+  </div>
+  <p>To help us locate your account quickly, please include the email address you used to sign up. We will verify your request and complete the deletion within <strong>30 days</strong> of receiving it.</p>
+
+  <h2>What Gets Deleted</h2>
+  <p>When your account is deleted, the following personal data is removed from our systems:</p>
+  <ul>
+    <li>Your account profile (name, email, profile photo, sign-in identifiers from Apple, Google, or Firebase)</li>
+    <li>Your saved Quran and Hadith items</li>
+    <li>Your chat history with the JIBRIL AI assistant</li>
+    <li>Your in-app preferences and settings</li>
+    <li>Your dhikr counter and progress</li>
+    <li>Any feedback or reports tied to your account</li>
+  </ul>
+
+  <h2>What May Be Retained (and Why)</h2>
+  <p>A limited set of data may be retained for legal, financial, or security reasons, even after your account is deleted:</p>
+  <ul>
+    <li><strong>Subscription and transaction records</strong> &mdash; required for tax, accounting, and consumer-protection laws (typically up to 7&ndash;10 years, depending on jurisdiction). These records are stored without identifying your profile.</li>
+    <li><strong>Anonymized analytics and crash logs</strong> &mdash; data that cannot be linked back to you may continue to be used in aggregate form.</li>
+    <li><strong>Backups</strong> &mdash; your data may persist in encrypted backup systems for a limited period before it is permanently overwritten.</li>
+    <li><strong>Abuse-prevention logs</strong> &mdash; if your account was associated with abuse, fraud, or violations of our Terms, we may retain limited records to protect the Service and other users.</li>
+  </ul>
+  <p>For full details on data retention, see our <a href="../privacy-policy/">Privacy Policy</a>.</p>
+
+  <h2>Important Things to Know Before Deleting</h2>
+  <ul>
+    <li><strong>Deletion is permanent.</strong> Once your data is deleted, it cannot be restored.</li>
+    <li><strong>Active subscriptions are not refunded automatically.</strong> If you have an active WAZEER Plus subscription, deleting your account does <em>not</em> cancel it. You must cancel through your <strong>Apple App Store</strong> or <strong>Google Play</strong> subscription settings, or through Razorpay if you subscribed via Razorpay. Refunds are handled by Apple, Google, or Razorpay according to their policies.</li>
+    <li><strong>You can sign up again later</strong> using the same email address, but your previous data will not be recoverable.</li>
+  </ul>
+
+  <h2>Questions?</h2>
+  <p>If you have any questions about account deletion or what happens to your data, contact us:</p>
+  <div class="contact-box">
+    <p style="margin-bottom: 0;"><strong>Email:</strong> <a href="mailto:info@wazeer.app">info@wazeer.app</a></p>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">WAZEER</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/wazeer.app/" target="_blank" rel="noopener">Instagram</a>
+    <a href="../privacy-policy/">Privacy Policy</a>
+    <a href="../terms-and-conditions/">Terms &amp; Conditions</a>
+    <a href="../delete-account/">Delete Account</a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2026 WAZEER &mdash; A <a href="http://www.cybercradle.de" target="_blank" rel="noopener">CyberCradle</a> Product
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+</body>
+</html>
